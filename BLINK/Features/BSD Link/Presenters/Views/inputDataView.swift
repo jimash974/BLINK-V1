@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-
+import Combine
 
 struct inputDataView: View {
     
@@ -17,13 +17,17 @@ struct inputDataView: View {
     
     var rute = ["a", "b", "c", "d","e"]
     var halte = ["Red", "Green", "Blue", "Tartan","pink"]
-    var jam = ["09.00","10.00","11.00","12.00","13.00"]
+//    var jam = ["09.00","10.00","11.00","12.00","13.00"]
     @State private var pilihRute = "Red"
     @State private var pilihhalteAwal = "Red"
     @State private var pilihhalteAkhir = "Red"
-    @State private var pilihJam = "10.00"
+//    @State private var pilihJam = "10.00"
     @State private var isBookmarked : Bool = false
     @State private var bK : Bool = false
+    @EnvironmentObject var appManager : AppManager
+    
+    @State var pilihJam = Date()
+//    @State private var pilihJamText = ""
     
     // bikin strcut isinya rute halteawal halteakhir dan jam
 //    struct
@@ -66,19 +70,24 @@ struct inputDataView: View {
             }
             .pickerStyle(.menu)
             
-            Picker("jam: ", selection: $pilihJam) {
-                ForEach(jam, id: \.self) {
-                    Text($0)
-                    
-                }
-            }
-            .pickerStyle(.menu)
+            
+            DatePicker("jam: ", selection: $pilihJam, displayedComponents: .hourAndMinute)
+                .datePickerStyle(.compact)
+                .labelsHidden()
+            
+            
+//            Picker("jam: ", selection: $pilihJam) {
+//                ForEach(jam, id: \.self) {
+//                    Text($0)
+//
+//                }
+//            }
+//            .pickerStyle(.menu)
             
             
             Button {
-                
-                
-            addBookmark (rute : pilihRute, halteAwal : pilihhalteAwal, halteAkhir : pilihhalteAkhir, jam : pilihJam)
+            
+                addBookmark (rute : pilihRute, halteAwal : pilihhalteAwal, halteAkhir : pilihhalteAkhir, jam : appManager.formattedTime(date: pilihJam))
             
                 
             } label: {
@@ -115,7 +124,7 @@ struct inputDataView: View {
             
             if(results.count > 0){
                 
-                deleteSpecificData (rute : pilihRute, halteAwal : pilihhalteAwal, halteAkhir : pilihhalteAkhir, jam : pilihJam)
+                deleteSpecificData (rute : pilihRute, halteAwal : pilihhalteAwal, halteAkhir : pilihhalteAkhir, jam :appManager.formattedTime(date: pilihJam))
                 
                 return
                 
@@ -188,6 +197,12 @@ struct inputDataView: View {
             print("error")
         }
     }
+    
+//    func formattedTime(date: Date) -> String {
+//            let timeFormatter = DateFormatter()
+//            timeFormatter.timeStyle = .short
+//            return timeFormatter.string(from: date)
+//        }
 }
 
 struct inputDataView_Previews: PreviewProvider {

@@ -13,6 +13,7 @@
 		5818FFD22A488ED90017F676 /* BookmarkComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD12A488ED90017F676 /* BookmarkComponent.swift */; };
 		5818FFD42A4A82700017F676 /* PopUpHalteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */; };
 		5818FFD62A4A95710017F676 /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD52A4A95710017F676 /* SheetManager.swift */; };
+		5818FFD82A4B16800017F676 /* PopUpTimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */; };
 		585580002A42828F00991CA4 /* BLINKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58557FFF2A42828F00991CA4 /* BLINKApp.swift */; };
 		585580022A42828F00991CA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580012A42828F00991CA4 /* ContentView.swift */; };
 		585580042A42829100991CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 585580032A42829100991CA4 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		5818FFD12A488ED90017F676 /* BookmarkComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkComponent.swift; sourceTree = "<group>"; };
 		5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpHalteComponent.swift; sourceTree = "<group>"; };
 		5818FFD52A4A95710017F676 /* SheetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetManager.swift; sourceTree = "<group>"; };
+		5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTimeComponent.swift; sourceTree = "<group>"; };
 		58557FFC2A42828F00991CA4 /* BLINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLINK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58557FFF2A42828F00991CA4 /* BLINKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLINKApp.swift; sourceTree = "<group>"; };
 		585580012A42828F00991CA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				5818FFD52A4A95710017F676 /* SheetManager.swift */,
+				5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */,
 				585580442A42868500991CA4 /* ListBusComponent.swift */,
 				5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */,
 			);
@@ -395,6 +398,7 @@
 				5818FFD42A4A82700017F676 /* PopUpHalteComponent.swift in Sources */,
 				585580202A4283AC00991CA4 /* NetworkManager.swift in Sources */,
 				585580002A42828F00991CA4 /* BLINKApp.swift in Sources */,
+				5818FFD82A4B16800017F676 /* PopUpTimeComponent.swift in Sources */,
 				5855801C2A42837000991CA4 /* ErrorMessage.swift in Sources */,
 				4606687A2A42F0100058896F /* inputDataView.swift in Sources */,
 				585580222A4283B800991CA4 /* CoreDataManager.swift in Sources */,
