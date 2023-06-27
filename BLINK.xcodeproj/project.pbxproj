@@ -10,6 +10,12 @@
 		4606687A2A42F0100058896F /* inputDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460668792A42F0100058896F /* inputDataView.swift */; };
 		4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208862A4A96AD00246F3E /* RecommendationView.swift */; };
 		4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */; };
+		5818FFCE2A4885A00017F676 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFCD2A4885A00017F676 /* HomePage.swift */; };
+		5818FFD02A48884C0017F676 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFCF2A48884C0017F676 /* ButtonComponent.swift */; };
+		5818FFD22A488ED90017F676 /* BookmarkComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD12A488ED90017F676 /* BookmarkComponent.swift */; };
+		5818FFD42A4A82700017F676 /* PopUpHalteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */; };
+		5818FFD62A4A95710017F676 /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD52A4A95710017F676 /* SheetManager.swift */; };
+		5818FFD82A4B16800017F676 /* PopUpTimeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */; };
 		585580002A42828F00991CA4 /* BLINKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58557FFF2A42828F00991CA4 /* BLINKApp.swift */; };
 		585580022A42828F00991CA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580012A42828F00991CA4 /* ContentView.swift */; };
 		585580042A42829100991CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 585580032A42829100991CA4 /* Assets.xcassets */; };
@@ -37,6 +43,12 @@
 		460668792A42F0100058896F /* inputDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDataView.swift; sourceTree = "<group>"; };
 		4A3208862A4A96AD00246F3E /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListofRoute.swift; sourceTree = "<group>"; };
+		5818FFCD2A4885A00017F676 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		5818FFCF2A48884C0017F676 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		5818FFD12A488ED90017F676 /* BookmarkComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkComponent.swift; sourceTree = "<group>"; };
+		5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpHalteComponent.swift; sourceTree = "<group>"; };
+		5818FFD52A4A95710017F676 /* SheetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetManager.swift; sourceTree = "<group>"; };
+		5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTimeComponent.swift; sourceTree = "<group>"; };
 		58557FFC2A42828F00991CA4 /* BLINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLINK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58557FFF2A42828F00991CA4 /* BLINKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLINKApp.swift; sourceTree = "<group>"; };
 		585580012A42828F00991CA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -226,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				585580352A42853000991CA4 /* ListComponent.swift */,
+				5818FFCF2A48884C0017F676 /* ButtonComponent.swift */,
+				5818FFD12A488ED90017F676 /* BookmarkComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -278,7 +292,10 @@
 		5855803D2A4285B000991CA4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5818FFD52A4A95710017F676 /* SheetManager.swift */,
+				5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */,
 				585580442A42868500991CA4 /* ListBusComponent.swift */,
+				5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -290,6 +307,7 @@
 				460668792A42F0100058896F /* inputDataView.swift */,
 				4A3208862A4A96AD00246F3E /* RecommendationView.swift */,
 				4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */,
+				5818FFCD2A4885A00017F676 /* HomePage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,6 +394,8 @@
 				585580302A42848400991CA4 /* Bus.swift in Sources */,
 				585580092A42829100991CA4 /* Persistence.swift in Sources */,
 				585580022A42828F00991CA4 /* ContentView.swift in Sources */,
+				5818FFD22A488ED90017F676 /* BookmarkComponent.swift in Sources */,
+				5818FFD62A4A95710017F676 /* SheetManager.swift in Sources */,
 				5855803C2A4285A400991CA4 /* BusViewModel.swift in Sources */,
 				585580342A42850C00991CA4 /* EmptyState.swift in Sources */,
 				5855800C2A42829100991CA4 /* BLINK.xcdatamodeld in Sources */,
@@ -383,8 +403,10 @@
 				585580382A42854000991CA4 /* TextModifier.swift in Sources */,
 				5855803A2A42857100991CA4 /* TimeToString.swift in Sources */,
 				4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */,
+				5818FFD42A4A82700017F676 /* PopUpHalteComponent.swift in Sources */,
 				585580202A4283AC00991CA4 /* NetworkManager.swift in Sources */,
 				585580002A42828F00991CA4 /* BLINKApp.swift in Sources */,
+				5818FFD82A4B16800017F676 /* PopUpTimeComponent.swift in Sources */,
 				5855801C2A42837000991CA4 /* ErrorMessage.swift in Sources */,
 				4606687A2A42F0100058896F /* inputDataView.swift in Sources */,
 				585580222A4283B800991CA4 /* CoreDataManager.swift in Sources */,
@@ -392,8 +414,10 @@
 				585580412A42860B00991CA4 /* BookMark.swift in Sources */,
 				5855801A2A42836900991CA4 /* Prompt.swift in Sources */,
 				585580452A42868500991CA4 /* ListBusComponent.swift in Sources */,
+				5818FFD02A48884C0017F676 /* ButtonComponent.swift in Sources */,
 				585580432A42861800991CA4 /* Reminder.swift in Sources */,
 				585580322A42848B00991CA4 /* BusRepository.swift in Sources */,
+				5818FFCE2A4885A00017F676 /* HomePage.swift in Sources */,
 				585580262A4283E900991CA4 /* AppColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
