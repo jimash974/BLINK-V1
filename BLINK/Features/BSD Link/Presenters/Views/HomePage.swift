@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct HomePage: View {
-    @State private var pickUp: String = ""
-    @State private var Destination: String = ""
-    @State private var Time: String = ""
+    @State var pickUp: String = "Set departure time"
+    @State var destination: String = "Set destination bus stop"
+    @State private var Time: String = "Set Departure Time"
     let pickUpBM = ["Eternity", "Edutown 1", "The Breeze", "Extreme Park", "The Breeze"]
     let destBM = ["Puspita Loka", "Greenwich Park Office", "Verdant View", "Casa de Parco", "Terminal Intermoda"]
     let timeBM = ["15:00", "08:00", "17:00", "19:00", "13:00"]
@@ -18,7 +18,10 @@ struct HomePage: View {
     
     @EnvironmentObject var sheetManager:SheetManager
     
-    var popUp = false
+    @State var isPopUp = false
+    @State var isPopUpTime = false
+    @State var selectedHalte = ""
+    @State var flag = 0
     
     var body: some View {
         ZStack{
@@ -42,47 +45,78 @@ struct HomePage: View {
                 VStack(alignment: .leading){
                     HStack(spacing: 10){
                        Image("TripIcon")
+                            
                         VStack(alignment: .leading, spacing: 15){
                             
                             Button {
                                 withAnimation {
-                                    
+                                    flag = 0
+                                   isPopUp = true
                                 }
                             } label: {
-                                Text("Search for a pickup point")
-                                    .frame(width: 220)
-
+                                HStack{
+                                    Text("\(pickUp)")
+                                        .foregroundColor(pickUp != "Set departure time" ? .black : .gray)
+                                    Spacer()
+                                }
+                                .frame(width: 200)
                             }
+                            .padding(.trailing, 30)
                             
                             Divider()
                              .frame(width: 200, height: 1)
                              .background(AppColor.grey)
 
-                            TextField(
-                                   "Search for a Destination",
-                                   text: $Destination
-                               )
-                            .frame(width: 220)
+                            Button {
+                                withAnimation {
+                                    flag = 1
+                                   isPopUp = true
+                                }
+                            } label: {
+                                HStack{
+                                    
+                                    Text("\(destination)")
+                                        .foregroundColor(destination != "Set destination bus stop" ? .black : .gray)
+                                    Spacer()
+                                }
+                                .frame(width: 200)
+                            }
                         }
                         Image("reverse")
                             .frame(width: 40, height: 40)
                             .background(AppColor.grey)
                             .cornerRadius(10)
+                            .onTapGesture {
+                                let temp = pickUp
+                                pickUp = destination
+                                destination = temp
+                            }
                     }
-                    .frame(width: 327, height: 111)
+                    .frame(maxWidth: .infinity)
+                    .padding([.top, .bottom], 15)
                     .background(.white)
                     .cornerRadius(10)
                     .shadow(radius: 3)
                     
                     HStack{
                         Image("time")
-                        TextField(
-                            "Departure time",
-                            text: $Time
-                        )
+                        Button {
+                            withAnimation {
+                               isPopUpTime = true
+                            }
+                        } label: {
+                            HStack{
+                                Text("\(Time)")
+                                    .foregroundColor(Time != "Set Departure Time" ? .black : .gray)
+                                Spacer()
+                            }
+                            .frame(width: 200)
+                        }
+                        Spacer()
                     }
-                    .frame(width: 225, height: 50)
-                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity)
+                    .padding(.leading, 25)
+                    .padding([.top, .bottom], 15)
                     .background(.white)
                     .cornerRadius(10)
                     .shadow(radius: 3)
@@ -115,14 +149,44 @@ struct HomePage: View {
                 Spacer()
             }
             .padding(.top, 35)
-//            on tap gesture here
+            if isPopUp {
+                   Color.black
+                       .opacity(0.5)
+                       .edgesIgnoringSafeArea(.all)
+                       .onTapGesture {
+                           withAnimation {
+                               isPopUp.toggle()
+//                               print(selectedHalte)
+//                               if flag == 0{
+//                                   pickUp = selectedHalte
+//                               }else if flag == 1{
+//                                   destination = selectedHalte
+//                               }
+                           }
+                       }
+               }
+            else if isPopUpTime {
+                   Color.black
+                       .opacity(0.5)
+                       .edgesIgnoringSafeArea(.all)
+                       .onTapGesture {
+                           withAnimation {
+                               isPopUpTime.toggle()
+                               
+                           }
+                       }
+               }
             
         }
         .overlay(alignment: .bottom){
-            if sheetManager.action.isPresented{
-                PopUpHalteComponent{
-                    sheetManager.dismiss()
+            if isPopUp{
+                if flag == 0{
+                    PopUpHalteComponent(selectedHalte: $pickUp)
+                }else if flag == 1{
+                    PopUpHalteComponent(selectedHalte: $destination)
                 }
+            }else if isPopUpTime{
+                PopUpTimeComponent(time: $Time)
             }
         }
         
