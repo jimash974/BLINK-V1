@@ -11,12 +11,15 @@ import SwiftUI
 struct BLINKApp: App {
 
     @StateObject var appData = ApplicationData()
+    @StateObject var sheetManager = SheetManager()
+
 
     var body: some Scene {
         WindowGroup {
-            inputDataView()
+            HomePage()
                 .environmentObject(appData)
                 .environment(\.managedObjectContext,appData.container.viewContext)
+                .environmentObject(sheetManager)
 //            ContentView()
 //               .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
