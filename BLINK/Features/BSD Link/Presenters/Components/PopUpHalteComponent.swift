@@ -19,7 +19,6 @@ struct PopUpHalteComponent: View {
     
     
 //    let didClose: ()-> Void
-    
 
     var body: some View {
         VStack(alignment: .center,spacing: 0){

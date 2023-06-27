@@ -45,7 +45,6 @@ struct HomePage: View {
                 VStack(alignment: .leading){
                     HStack(spacing: 10){
                        Image("TripIcon")
-                            
                         VStack(alignment: .leading, spacing: 15){
                             
                             Button {
@@ -62,11 +61,9 @@ struct HomePage: View {
                                 .frame(width: 200)
                             }
                             .padding(.trailing, 30)
-                            
                             Divider()
                              .frame(width: 200, height: 1)
                              .background(AppColor.grey)
-
                             Button {
                                 withAnimation {
                                     flag = 1
