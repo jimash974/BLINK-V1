@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4606687A2A42F0100058896F /* inputDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460668792A42F0100058896F /* inputDataView.swift */; };
+		4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208862A4A96AD00246F3E /* RecommendationView.swift */; };
+		4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */; };
 		585580002A42828F00991CA4 /* BLINKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58557FFF2A42828F00991CA4 /* BLINKApp.swift */; };
 		585580022A42828F00991CA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580012A42828F00991CA4 /* ContentView.swift */; };
 		585580042A42829100991CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 585580032A42829100991CA4 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		460668792A42F0100058896F /* inputDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDataView.swift; sourceTree = "<group>"; };
+		4A3208862A4A96AD00246F3E /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
+		4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListofRoute.swift; sourceTree = "<group>"; };
 		58557FFC2A42828F00991CA4 /* BLINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLINK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58557FFF2A42828F00991CA4 /* BLINKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLINKApp.swift; sourceTree = "<group>"; };
 		585580012A42828F00991CA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 			children = (
 				585580012A42828F00991CA4 /* ContentView.swift */,
 				460668792A42F0100058896F /* inputDataView.swift */,
+				4A3208862A4A96AD00246F3E /* RecommendationView.swift */,
+				4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,8 +379,10 @@
 				5855803C2A4285A400991CA4 /* BusViewModel.swift in Sources */,
 				585580342A42850C00991CA4 /* EmptyState.swift in Sources */,
 				5855800C2A42829100991CA4 /* BLINK.xcdatamodeld in Sources */,
+				4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */,
 				585580382A42854000991CA4 /* TextModifier.swift in Sources */,
 				5855803A2A42857100991CA4 /* TimeToString.swift in Sources */,
+				4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */,
 				585580202A4283AC00991CA4 /* NetworkManager.swift in Sources */,
 				585580002A42828F00991CA4 /* BLINKApp.swift in Sources */,
 				5855801C2A42837000991CA4 /* ErrorMessage.swift in Sources */,
