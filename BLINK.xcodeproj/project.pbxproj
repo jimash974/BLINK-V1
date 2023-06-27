@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4606687A2A42F0100058896F /* inputDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460668792A42F0100058896F /* inputDataView.swift */; };
+		4D9F80232A4A8FDB00FAA9C8 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F80222A4A8FDB00FAA9C8 /* AppManager.swift */; };
 		585580002A42828F00991CA4 /* BLINKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58557FFF2A42828F00991CA4 /* BLINKApp.swift */; };
 		585580022A42828F00991CA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580012A42828F00991CA4 /* ContentView.swift */; };
 		585580042A42829100991CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 585580032A42829100991CA4 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		460668792A42F0100058896F /* inputDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDataView.swift; sourceTree = "<group>"; };
+		4D9F80222A4A8FDB00FAA9C8 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		58557FFC2A42828F00991CA4 /* BLINK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLINK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58557FFF2A42828F00991CA4 /* BLINKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLINKApp.swift; sourceTree = "<group>"; };
 		585580012A42828F00991CA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				5855803B2A4285A400991CA4 /* BusViewModel.swift */,
+				4D9F80222A4A8FDB00FAA9C8 /* AppManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9F80232A4A8FDB00FAA9C8 /* AppManager.swift in Sources */,
 				585580302A42848400991CA4 /* Bus.swift in Sources */,
 				585580092A42829100991CA4 /* Persistence.swift in Sources */,
 				585580022A42828F00991CA4 /* ContentView.swift in Sources */,
