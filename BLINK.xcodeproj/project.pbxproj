@@ -12,6 +12,7 @@
 		4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */; };
 		4A32088C2A4BE32300246F3E /* DetailRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32088A2A4BE32300246F3E /* DetailRoute.swift */; };
 		4A32088D2A4BE32300246F3E /* FirstRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32088B2A4BE32300246F3E /* FirstRoute.swift */; };
+		4A32088F2A4C1CB200246F3E /* SliderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32088E2A4C1CB200246F3E /* SliderCard.swift */; };
 		4D9F802D2A4AC57200FAA9C8 /* CartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F802C2A4AC57200FAA9C8 /* CartList.swift */; };
 		5818FFCE2A4885A00017F676 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFCD2A4885A00017F676 /* HomePage.swift */; };
 		5818FFD02A48884C0017F676 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFCF2A48884C0017F676 /* ButtonComponent.swift */; };
@@ -48,6 +49,7 @@
 		4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListofRoute.swift; sourceTree = "<group>"; };
 		4A32088A2A4BE32300246F3E /* DetailRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRoute.swift; sourceTree = "<group>"; };
 		4A32088B2A4BE32300246F3E /* FirstRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRoute.swift; sourceTree = "<group>"; };
+		4A32088E2A4C1CB200246F3E /* SliderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCard.swift; sourceTree = "<group>"; };
 		4D9F802C2A4AC57200FAA9C8 /* CartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartList.swift; sourceTree = "<group>"; };
 		4D9F802E2A4ACFB100FAA9C8 /* BLINK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BLINK.entitlements; sourceTree = "<group>"; };
 		5818FFCD2A4885A00017F676 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */,
 				5818FFCD2A4885A00017F676 /* HomePage.swift */,
 				4D9F802C2A4AC57200FAA9C8 /* CartList.swift */,
+				4A32088E2A4C1CB200246F3E /* SliderCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				5855803C2A4285A400991CA4 /* BusViewModel.swift in Sources */,
 				585580342A42850C00991CA4 /* EmptyState.swift in Sources */,
 				5855800C2A42829100991CA4 /* BLINK.xcdatamodeld in Sources */,
+				4A32088F2A4C1CB200246F3E /* SliderCard.swift in Sources */,
 				4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */,
 				585580382A42854000991CA4 /* TextModifier.swift in Sources */,
 				5855803A2A42857100991CA4 /* TimeToString.swift in Sources */,

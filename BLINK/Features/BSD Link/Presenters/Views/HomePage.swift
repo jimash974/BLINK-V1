@@ -137,7 +137,6 @@ struct HomePage: View {
                         .cornerRadius(10)
                         .shadow(radius: 5, y: 5)
                         }
-                        
                     }
                     .padding(15)
                     .background(AppColor.grey)
