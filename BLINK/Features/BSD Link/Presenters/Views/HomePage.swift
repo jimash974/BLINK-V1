@@ -23,13 +23,14 @@ struct HomePage: View {
     @State var selectedHalte = ""
     @State var flag = 0
     
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults <Item>
+    
     var body: some View {
         NavigationStack {
             ZStack{
                 Image("Background")
                     .resizable()
                     .ignoresSafeArea()
-                
                 VStack(spacing: 0){
                     HStack(alignment: .center){
                         VStack(alignment: .leading, spacing: 20){
@@ -139,8 +140,8 @@ struct HomePage: View {
                     
                     ScrollView(.horizontal, showsIndicators: true) {
                         HStack(spacing: 20) {
-                            ForEach(Array(pickUpBM.indices), id: \.self) { index in
-                                BookmarkComponent(time: timeBM[index], pickUp: pickUpBM[index], dest: destBM[index])
+                            ForEach(listofBookmark) { bk in
+                                BookmarkComponent(time: bk.jam ?? "", pickUp: bk.halteAwal ?? "", dest: bk.halterAkhir ?? "")
                             }
 
                         }

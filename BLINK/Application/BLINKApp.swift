@@ -12,16 +12,17 @@ struct BLINKApp: App {
 
     @StateObject var appData = ApplicationData()
     @StateObject var sheetManager = SheetManager()
-
+    @StateObject var appManager : AppManager = AppManager()
 
     var body: some Scene {
         WindowGroup {
-            HomePage()
+            RecommendationView()
                 .environmentObject(appData)
+                .environmentObject(appManager)
                 .environment(\.managedObjectContext,appData.container.viewContext)
                 .environmentObject(sheetManager)
 //            ContentView()
-//               .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//               .environment(\.managedObjectContext, appData.container.viewContext)
         }
     }
 }
