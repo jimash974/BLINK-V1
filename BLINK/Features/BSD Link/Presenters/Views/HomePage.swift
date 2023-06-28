@@ -29,7 +29,6 @@ struct HomePage: View {
                 Image("Background")
                     .resizable()
                     .ignoresSafeArea()
-                
                 VStack(spacing: 0){
                     HStack(alignment: .center){
                         VStack(alignment: .leading, spacing: 20){
