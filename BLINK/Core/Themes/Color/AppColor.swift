@@ -20,6 +20,7 @@ struct AppColor {
     static let PUGrey = Color(UIColor(named:"PUGrey")!)
     static let PUOrange = Color(UIColor(named:"PUOrange")!)
     static let PULightOrange = Color(UIColor(named:"PULightOrange")!)
+    static let PUDarkGrey = Color(UIColor(named:"PUDarkGrey")!)
     
 //    BSD LINK TYPE COLOR
     static let BPink = Color(UIColor(named:"BPink")!)

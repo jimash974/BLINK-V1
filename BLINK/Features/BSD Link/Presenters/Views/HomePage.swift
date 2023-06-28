@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomePage: View {
-    @State var pickUp: String = "Set departure time"
+    @State var pickUp: String = "Set starting bus stop"
     @State var destination: String = "Set destination bus stop"
     @State private var Time: String = "Set Departure Time"
     let pickUpBM = ["Eternity", "Edutown 1", "The Breeze", "Extreme Park", "The Breeze"]
@@ -56,7 +56,7 @@ struct HomePage: View {
                                 } label: {
                                     HStack{
                                         Text("\(pickUp)")
-                                            .foregroundColor(pickUp != "Set departure time" ? .black : .gray)
+                                            .foregroundColor(pickUp != "Set starting bus stop" ? .black : .gray)
                                         Spacer()
                                     }
                                     .frame(width: 200)
@@ -122,21 +122,27 @@ struct HomePage: View {
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
-                        NavigationLink{
-                            RecommendationView()
-                        } label: {
-                            HStack{
-                            Image("search")
-                            Text("View Bus Schedule")
-                                .font(.system(size: 17))
-                                .foregroundColor(.black)
+                        if pickUp != "" && pickUp != "Set starting bus stop" && destination != "" && destination != "Set destination bus stop" && Time != "Set Departure Time" && Time != ""{
+                            NavigationLink{
+                                RecommendationView()
+                            } label: {
+                                HStack{
+                                Image("search")
+                                Text("View Bus Schedule")
+                                    .font(.system(size: 17))
+                                    .foregroundColor(.black)
+                            }
+                            .padding(20)
+                            .frame(width: 327, height: 50)
+                            .background(AppColor.orange)
+                            .cornerRadius(10)
+                            .shadow(radius: 5, y: 5)
+                            }
                         }
-                        .padding(20)
-                        .frame(width: 327, height: 50)
-                        .background(AppColor.orange)
-                        .cornerRadius(10)
-                        .shadow(radius: 5, y: 5)
+                        else{
+                            ButtonComponent(text: "View Bus Schedule", image: "search")
                         }
+
                     }
                     .padding(15)
                     .background(AppColor.grey)

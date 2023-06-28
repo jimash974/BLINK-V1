@@ -17,13 +17,15 @@ struct ButtonComponent: View {
         } label: {
             HStack{
                 Image(image)
+                    .opacity(0.5)
                 Text(text)
                     .font(.system(size: 17))
                     .foregroundColor(.black)
+                    .opacity(0.5)
             }
             .padding(20)
             .frame(width: 327, height: 50)
-            .background(AppColor.orange)
+            .background(AppColor.PUGrey)
             .cornerRadius(10)
             .shadow(radius: 5, y: 5)
         }
