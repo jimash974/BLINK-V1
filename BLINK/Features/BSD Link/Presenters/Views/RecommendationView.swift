@@ -70,7 +70,7 @@ struct RecommendationView: View {
                         VStack(spacing: 10) {
                             ForEach(0..<10) {_ in
                                 NavigationLink{
-                                    inputDataView()
+                                    DetailRoute()
                                 } label: {
                                     TemplateListofRoute(time: "13.10", routeName: "BSD Link Sektor 1.3", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
                                         .foregroundColor(.black)

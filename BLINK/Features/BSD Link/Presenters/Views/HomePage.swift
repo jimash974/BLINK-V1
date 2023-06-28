@@ -64,7 +64,7 @@ struct HomePage: View {
                                 .padding(.trailing, 30)
                                 
                                 Divider()
-                                 .frame(width: 200, height: 1)
+                                 .frame(width: 220, height: 1)
                                  .background(AppColor.grey)
 
                                 Button {
@@ -92,14 +92,16 @@ struct HomePage: View {
                                     destination = temp
                                 }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding([.top, .bottom], 15)
+                        .frame(width: 307, height: 111)
+                        .padding([.leading,.trailing],10)
+//                        .padding([.top, .bottom], 15)
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
                         
                         HStack{
                             Image("time")
+                                .padding(.leading,10)
                             Button {
                                 withAnimation {
                                    isPopUpTime = true
@@ -114,9 +116,9 @@ struct HomePage: View {
                             }
                             Spacer()
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.leading, 25)
-                        .padding([.top, .bottom], 15)
+                        .frame(width: 327, height: 50)
+//                        .padding(.leading, 25)
+//                        .padding([.top, .bottom], 15)
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
@@ -124,8 +126,8 @@ struct HomePage: View {
                             RecommendationView()
                         } label: {
                             HStack{
-                            Image("bookmark")
-                            Text("Search")
+                            Image("search")
+                            Text("View Bus Schedule")
                                 .font(.system(size: 17))
                                 .foregroundColor(.black)
                         }
