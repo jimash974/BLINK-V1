@@ -121,9 +121,22 @@ struct HomePage: View {
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
+                        NavigationLink{
+                            RecommendationView()
+                        } label: {
+                            HStack{
+                            Image("bookmark")
+                            Text("Search")
+                                .font(.system(size: 17))
+                                .foregroundColor(.black)
+                        }
+                        .padding(20)
+                        .frame(width: 327, height: 50)
+                        .background(AppColor.orange)
+                        .cornerRadius(10)
+                        .shadow(radius: 5, y: 5)
+                        }
                         
-                        ButtonComponent(text: "Search", image: "search")
-                            .padding(.top, 20)
                     }
                     .padding(15)
                     .background(AppColor.grey)
