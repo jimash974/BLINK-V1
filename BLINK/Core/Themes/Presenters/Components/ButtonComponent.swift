@@ -15,7 +15,6 @@ struct ButtonComponent: View {
         Button  {
             print("clicked")
         } label: {
-            
             HStack{
                 Image(image)
                 Text(text)
