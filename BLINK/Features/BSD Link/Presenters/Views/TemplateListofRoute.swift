@@ -44,8 +44,6 @@ struct TemplateListofRoute: View {
             }
             
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.purple)
     }
 }
 

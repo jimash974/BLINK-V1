@@ -7,10 +7,21 @@
 
 import SwiftUI
 
+struct Jadwal: Hashable {
+    var jam: String
+    var halte: String
+    var isFirst: Bool
+    var isEnd: Bool
+}
+
+let DataJadwal: [Jadwal] = [
+    Jadwal(jam: "13.06", halte: "a", isFirst: true, isEnd: false),
+    Jadwal(jam: "15.06", halte: "b", isFirst: false, isEnd: false),
+    Jadwal(jam: "16.06", halte: "c", isFirst: false, isEnd: true)
+]
+
 struct DetailRoute: View {
-    let jam = ["13.06","13.07","14.00","15.00"]
-    let halte = ["a","b","c","d"]
-    
+    @State var count = 0
     var body: some View {
         ZStack{
             Image("Background")
@@ -22,36 +33,28 @@ struct DetailRoute: View {
                     .font(.title)
                     .padding()
                     .bold()
-                
-                ZStack{
-                    RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.white)
-                                .frame(width: 350, height: 150)
-                    HStack{
-                        VStack{
-                            Image("bus")
-                            Text("13.06")
-                        }
-                        .padding()
-                        VStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 20)
-                                            .fill(Color.teal)
-                                            .frame(width: 250, height: 50)
-                                Text("BSD Link De Park 1")
-                            }
-                            
-                            Text("Intermoda - De Park 1 - Intermoda")
-                        }
-                    }
-                    
-                }
+                TemplateListofRoute(time: "13.00", routeName: "De Park 1", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
                 Spacer()
                 ScrollView{
                     VStack (spacing: -30) {
-                        ForEach(Array(zip(halte,jam)), id: \.0) { item,jam in
-                            CartList(jam: jam, halte: item)
+                        ForEach(DataJadwal, id: \.self) { item in
+                            FirstRoute(halte: item.halte, jam: item.jam, isFirst: item.isFirst, isEnd: item.isEnd)
+
                         }
+//
+//                        ForEach(Array(zip(halte,jam, isFirst)), id: \.0) { item,jam, isFirst in
+//                            FirstRoute(isFirst: isFirst)
+////
+////                            if count == 1 {
+////                                FirstRoute()
+////
+////                            } else {
+////                                CartList(jam: jam, halte: item)
+////                            }
+//
+//
+//
+//                        }
                     }
                 }
             }

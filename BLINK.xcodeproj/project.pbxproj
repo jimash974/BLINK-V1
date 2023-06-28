@@ -10,7 +10,8 @@
 		4606687A2A42F0100058896F /* inputDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460668792A42F0100058896F /* inputDataView.swift */; };
 		4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208862A4A96AD00246F3E /* RecommendationView.swift */; };
 		4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */; };
-		4D9F802B2A4AC28800FAA9C8 /* DetailRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F802A2A4AC28800FAA9C8 /* DetailRoute.swift */; };
+		4A32088C2A4BE32300246F3E /* DetailRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32088A2A4BE32300246F3E /* DetailRoute.swift */; };
+		4A32088D2A4BE32300246F3E /* FirstRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32088B2A4BE32300246F3E /* FirstRoute.swift */; };
 		4D9F802D2A4AC57200FAA9C8 /* CartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F802C2A4AC57200FAA9C8 /* CartList.swift */; };
 		5818FFCE2A4885A00017F676 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFCD2A4885A00017F676 /* HomePage.swift */; };
 		5818FFD02A48884C0017F676 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5818FFCF2A48884C0017F676 /* ButtonComponent.swift */; };
@@ -45,7 +46,8 @@
 		460668792A42F0100058896F /* inputDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDataView.swift; sourceTree = "<group>"; };
 		4A3208862A4A96AD00246F3E /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListofRoute.swift; sourceTree = "<group>"; };
-		4D9F802A2A4AC28800FAA9C8 /* DetailRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoute.swift; sourceTree = "<group>"; };
+		4A32088A2A4BE32300246F3E /* DetailRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRoute.swift; sourceTree = "<group>"; };
+		4A32088B2A4BE32300246F3E /* FirstRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRoute.swift; sourceTree = "<group>"; };
 		4D9F802C2A4AC57200FAA9C8 /* CartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartList.swift; sourceTree = "<group>"; };
 		4D9F802E2A4ACFB100FAA9C8 /* BLINK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BLINK.entitlements; sourceTree = "<group>"; };
 		5818FFCD2A4885A00017F676 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -309,13 +311,13 @@
 		5855803E2A4285B700991CA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A32088A2A4BE32300246F3E /* DetailRoute.swift */,
+				4A32088B2A4BE32300246F3E /* FirstRoute.swift */,
 				585580012A42828F00991CA4 /* ContentView.swift */,
 				460668792A42F0100058896F /* inputDataView.swift */,
 				4A3208862A4A96AD00246F3E /* RecommendationView.swift */,
 				4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */,
 				5818FFCD2A4885A00017F676 /* HomePage.swift */,
-				5818FFCD2A4885A00017F676 /* HomePage.swift */,
-				4D9F802A2A4AC28800FAA9C8 /* DetailRoute.swift */,
 				4D9F802C2A4AC57200FAA9C8 /* CartList.swift */,
 			);
 			path = Views;
@@ -412,14 +414,15 @@
 				585580382A42854000991CA4 /* TextModifier.swift in Sources */,
 				5855803A2A42857100991CA4 /* TimeToString.swift in Sources */,
 				4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */,
+				4A32088C2A4BE32300246F3E /* DetailRoute.swift in Sources */,
 				5818FFD42A4A82700017F676 /* PopUpHalteComponent.swift in Sources */,
 				585580202A4283AC00991CA4 /* NetworkManager.swift in Sources */,
 				585580002A42828F00991CA4 /* BLINKApp.swift in Sources */,
 				5818FFD82A4B16800017F676 /* PopUpTimeComponent.swift in Sources */,
 				5855801C2A42837000991CA4 /* ErrorMessage.swift in Sources */,
-				4D9F802B2A4AC28800FAA9C8 /* DetailRoute.swift in Sources */,
 				4606687A2A42F0100058896F /* inputDataView.swift in Sources */,
 				585580222A4283B800991CA4 /* CoreDataManager.swift in Sources */,
+				4A32088D2A4BE32300246F3E /* FirstRoute.swift in Sources */,
 				585580362A42853000991CA4 /* ListComponent.swift in Sources */,
 				585580412A42860B00991CA4 /* BookMark.swift in Sources */,
 				5855801A2A42836900991CA4 /* Prompt.swift in Sources */,
