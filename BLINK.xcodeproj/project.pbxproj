@@ -41,6 +41,7 @@
 		585580412A42860B00991CA4 /* BookMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580402A42860B00991CA4 /* BookMark.swift */; };
 		585580432A42861800991CA4 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580422A42861800991CA4 /* Reminder.swift */; };
 		585580452A42868500991CA4 /* ListBusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580442A42868500991CA4 /* ListBusComponent.swift */; };
+		58A1559D2A4C34D2008199A2 /* backButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A1559C2A4C34D2008199A2 /* backButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		585580402A42860B00991CA4 /* BookMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMark.swift; sourceTree = "<group>"; };
 		585580422A42861800991CA4 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		585580442A42868500991CA4 /* ListBusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBusComponent.swift; sourceTree = "<group>"; };
+		58A1559C2A4C34D2008199A2 /* backButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backButtonComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 				5818FFD72A4B16800017F676 /* PopUpTimeComponent.swift */,
 				585580442A42868500991CA4 /* ListBusComponent.swift */,
 				5818FFD32A4A82700017F676 /* PopUpHalteComponent.swift */,
+				58A1559C2A4C34D2008199A2 /* backButtonComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */,
 				585580382A42854000991CA4 /* TextModifier.swift in Sources */,
 				5855803A2A42857100991CA4 /* TimeToString.swift in Sources */,
+				58A1559D2A4C34D2008199A2 /* backButtonComponent.swift in Sources */,
 				4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */,
 				4A32088C2A4BE32300246F3E /* DetailRoute.swift in Sources */,
 				5818FFD42A4A82700017F676 /* PopUpHalteComponent.swift in Sources */,

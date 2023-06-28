@@ -23,68 +23,69 @@ let DataJadwal: [Jadwal] = [
 struct DetailRoute: View {
     @State var count = 0
     var body: some View {
-        ZStack{
-            Image("Background")
-                .resizable()
-                .ignoresSafeArea()
-            
-            VStack{
-                Text("Schedule Recommendation")
-                    .font(.title)
-                    .padding()
-                    .bold()
-                TemplateListofRoute(time: "13.00", routeName: "De Park 1", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
-                Spacer()
-                ScrollView{
-                    VStack (spacing: -30) {
-                        ForEach(DataJadwal, id: \.self) { item in
-                            FirstRoute(halte: item.halte, jam: item.jam, isFirst: item.isFirst, isEnd: item.isEnd)
+        NavigationStack{
+            ZStack{
+                Image("Background")
+                    .resizable()
+                    .ignoresSafeArea()
+                
+                VStack{
+//                    Text("Schedule Recommendation")
+//                        .font(.title)
+//                        .padding()
+//                        .bold()
+                    TemplateListofRoute(time: "13.00", routeName: "De Park 1", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
+                    Spacer()
+                    ScrollView{
+                        VStack (spacing: -30) {
+                            ForEach(DataJadwal, id: \.self) { item in
+                                FirstRoute(halte: item.halte, jam: item.jam, isFirst: item.isFirst, isEnd: item.isEnd)
 
+                            }
+    //
+    //                        ForEach(Array(zip(halte,jam, isFirst)), id: \.0) { item,jam, isFirst in
+    //                            FirstRoute(isFirst: isFirst)
+    ////
+    ////                            if count == 1 {
+    ////                                FirstRoute()
+    ////
+    ////                            } else {
+    ////                                CartList(jam: jam, halte: item)
+    ////                            }
+    //
+    //
+    //
+    //                        }
                         }
-//
-//                        ForEach(Array(zip(halte,jam, isFirst)), id: \.0) { item,jam, isFirst in
-//                            FirstRoute(isFirst: isFirst)
-////
-////                            if count == 1 {
-////                                FirstRoute()
-////
-////                            } else {
-////                                CartList(jam: jam, halte: item)
-////                            }
-//
-//
-//
-//                        }
                     }
+    //                SwipeItem(content: {
+    //                            Text("Exhibit 1")
+    //                         },
+    //                         left: {
+    //                            ZStack {
+    //                                Rectangle()
+    //                                    .fill(Color.orange)
+    //
+    //                                Image(systemName: "pencil.circle")
+    //                                    .foregroundColor(.white)
+    //                                    .font(.largeTitle)
+    //                            }
+    //                         },
+    //                         right: {
+    //                            ZStack {
+    //                                Rectangle()
+    //                                    .fill(Color.red)
+    //
+    //                                Image(systemName: "trash.circle")
+    //                                    .foregroundColor(.white)
+    //                                    .font(.largeTitle)
+    //                            }
+    //                         }, itemHeight: 50)
                 }
-//                SwipeItem(content: {
-//                            Text("Exhibit 1")
-//                         },
-//                         left: {
-//                            ZStack {
-//                                Rectangle()
-//                                    .fill(Color.orange)
-//
-//                                Image(systemName: "pencil.circle")
-//                                    .foregroundColor(.white)
-//                                    .font(.largeTitle)
-//                            }
-//                         },
-//                         right: {
-//                            ZStack {
-//                                Rectangle()
-//                                    .fill(Color.red)
-//
-//                                Image(systemName: "trash.circle")
-//                                    .foregroundColor(.white)
-//                                    .font(.largeTitle)
-//                            }
-//                         }, itemHeight: 50)
             }
-            
-            
-            
-            
+            .navigationBarTitle("Schedule Recommendations", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: backButtonComponent())
         }
     }
 }

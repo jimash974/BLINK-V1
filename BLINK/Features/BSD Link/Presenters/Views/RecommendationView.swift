@@ -83,6 +83,9 @@ struct RecommendationView: View {
             }
     //            .font(.system(size: 20))
             .navigationBarTitle("Schedule Recommendations", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: backButtonComponent())
+            
         }
     }
 }
