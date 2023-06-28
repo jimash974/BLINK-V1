@@ -20,7 +20,7 @@ struct TemplateListofRoute: View {
                     .frame(width: 350, height: 100)
                 HStack {
                     VStack{
-                        Image(systemName: "clock.fill")
+                        Image("bus")
                             .font(.system(size: 30.0))
                         Text("\(time)")
                             .font(.system(size: 17, weight: .semibold))
@@ -44,8 +44,6 @@ struct TemplateListofRoute: View {
             }
             
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.purple)
     }
 }
 
