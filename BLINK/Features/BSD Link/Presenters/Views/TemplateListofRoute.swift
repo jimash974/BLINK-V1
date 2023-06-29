@@ -15,9 +15,9 @@ struct TemplateListofRoute: View {
     var body: some View {
         VStack {
             ZStack{
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color(red: 1, green: 1, blue: 1))
-                    .frame(width: 350, height: 100)
+//                RoundedRectangle(cornerRadius: 10.0)
+//                    .fill(Color(red: 1, green: 1, blue: 1))
+//                    .frame(width: 350, height: 85)
                 HStack {
                     VStack{
                         Image("bus")
@@ -26,6 +26,7 @@ struct TemplateListofRoute: View {
                             .font(.system(size: 17, weight: .semibold))
                             .padding([.top,.trailing],2)
                     }
+                    Spacer()
                     VStack(alignment: .leading){
                         ZStack{
                             RoundedRectangle(cornerRadius: 200.0)
@@ -41,6 +42,11 @@ struct TemplateListofRoute: View {
                     .foregroundColor(.black)
                     .font(.system(size: 17))
                 }
+                .padding([.leading, .trailing], 10)
+                .frame(width: 350, height: 85)
+                .background(Color.white)
+                .cornerRadius(10)
+
             }
             
         }
@@ -50,5 +56,7 @@ struct TemplateListofRoute: View {
 struct TemplateListofRoute_Previews: PreviewProvider {
     static var previews: some View {
         TemplateListofRoute(time: "13.10", routeName: "BSD Link Sektor 1.3", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
+            .previewLayout(.sizeThatFits)
+
     }
 }

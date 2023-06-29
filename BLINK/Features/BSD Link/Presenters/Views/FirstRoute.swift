@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct FirstRoute: View {
-    var halte: String = "a"
-    var jam: String  = "13.00"
-    var isFirst: Bool = true
-    var isEnd: Bool = false
+    var halte: String
+    var jam: String
+    var isFirst: Bool
+    var isEnd: Bool
     
     var body: some View {
         
@@ -22,85 +22,78 @@ struct FirstRoute: View {
 //                    .padding(.bottom,50)
 //            }
 //            .padding()
-            
-            
                 if isFirst {
-                    
-                    
-                        
-                        HStack {
-                            VStack {
-                                Text(jam)
-                                    .padding(.bottom,50)
-                            }
-                            .padding()
-                            
-                            VStack (spacing: -5) {
-                                Image("bus")
-                                    .renderingMode(.template)
-                                .foregroundColor(.blue)
+                    HStack(alignment: .top ,spacing:0){
+                        Text(jam)
+                            .padding([.leading, .trailing], 22)
+                        VStack (spacing: -3) {
+                            Image("startBus")
                                 
                             Rectangle()
                                 .frame(width: 5, height: 50)
-                            .foregroundColor(Color.black)
-                                
-                            
+                                .foregroundColor(Color.black)
                         }
-                            VStack {
+                        HStack{
+                            VStack(alignment: .leading){
+                                Text("Start from")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(.black)
+                                    .opacity(0.3)
                                 Text(halte)
-                                    .padding(.bottom,50)
                             }
-                            .padding()
+                            Spacer()
+                        }
+                        .frame(width: 200)
                     }
+                    .padding(.leading, 13)
+                    .padding(.top, 30)
                     
                 } else if isEnd {
-                    HStack {
-                        VStack {
-                            Text(jam)
-                                .padding(.bottom,50)
+                    HStack(alignment: .top ,spacing:0){
+                        Text(jam)
+                            .padding([.leading, .trailing], 22)
+                        VStack (spacing: -3) {
+                            Image("destination")
+                                
+
                         }
-                        .padding()
-                        
-                        Image("destination")
-                            .renderingMode(.template)
-                        .foregroundColor(.red)
-                    .padding(.bottom, 50)
-                        
-                        VStack {
-                            Text(halte)
-                                .padding(.bottom,50)
+                        HStack{
+                            VStack(alignment: .leading){
+                                Text("Reach Destination")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(.black)
+                                    .opacity(0.3)
+                                Text(halte)
+                            }
+                            Spacer()
                         }
-                        .padding()
+                        .frame(width: 200)
                     }
+                    .padding(.leading, 13)
+                    .padding(.top, 30)
                 }
             else {
-                HStack {
-                    VStack {
-                        Text(jam)
-                            .padding(.bottom,50)
-                    }
-                    .padding()
-                    
-                    VStack (spacing: 13) {
+                HStack(alignment: .top,spacing: 10){
+                    Text(jam)
+                        .padding([.leading, .trailing], 20)
+                    VStack (spacing: 4) {
                             Circle()
                                 .stroke(Color.orange, lineWidth: 10)
-                            .frame(width: 20, height: 20)
+                                .frame(width: 20, height: 20)
                             
                         Rectangle()
                             .frame(width: 5, height: 50)
                             .foregroundColor(Color.black)
-                            .padding(.top,-10)
-                            
                     }
-                    VStack {
+                    HStack{
                         Text(halte)
-                            .padding(.bottom,50)
+                        Spacer()
                     }
-                    .padding()
-                    
+                    .frame(width: 200)
                 }
-                    
-                }
+                .padding(.trailing, -15)
+                .padding(.top, 30)
+            }
                 
 //                Circle()
 //                    .stroke(Color.blue, lineWidth: 10)
@@ -120,6 +113,12 @@ struct FirstRoute: View {
 
 struct FirstRoute_Previews: PreviewProvider {
     static var previews: some View {
-        FirstRoute()
+        VStack(spacing:-30){
+            FirstRoute(halte: "The Breeze", jam: "13:00", isFirst: true, isEnd: false)
+            FirstRoute(halte: "Intermoda", jam: "13:00", isFirst: false, isEnd: false)
+            FirstRoute(halte: "SML", jam: "13:00", isFirst: false, isEnd: false)
+            FirstRoute(halte: "AEON", jam: "16:06", isFirst: false, isEnd: true)
+        }
+        
     }
 }
