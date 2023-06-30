@@ -9,15 +9,11 @@ import SwiftUI
 
 struct RecommendationView: View {
     @State private var isOn = false
-<<<<<<< HEAD
     @StateObject var scheduleViewModel = ScheduleViewModel()
     @Binding var time:String
-=======
     var startHalte: String
     var finishHalte: String
-    var time: String
     var data: [Schedule]
->>>>>>> 19a3095295f0d25b8088c67e0bd99ccf81ecbbe8
     
     var body: some View {
         NavigationStack {
@@ -107,10 +103,6 @@ struct RecommendationView: View {
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-<<<<<<< HEAD
-        RecommendationView(time:Binding.constant("10:00"))
-=======
-        RecommendationView(startHalte: "wkkw", finishHalte: "wkkw", time: "wkwk", data: dummySched)
->>>>>>> 19a3095295f0d25b8088c67e0bd99ccf81ecbbe8
+        RecommendationView(startHalte: "wkkw", finishHalte: "wkkw", time:Binding.constant("10:00"), data: dummySched)
     }
 }
