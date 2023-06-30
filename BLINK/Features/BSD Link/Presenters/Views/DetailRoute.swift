@@ -26,6 +26,7 @@ let DataJadwal: [Jadwal] = [
 
 struct DetailRoute: View {
     @State var count = 0
+    
     var body: some View {
         NavigationStack{
             ZStack{
