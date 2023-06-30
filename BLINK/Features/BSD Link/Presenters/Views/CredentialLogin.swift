@@ -34,65 +34,69 @@ struct CredentialLogin : View {
         
         
         if(firstName == ""){
-        NavigationView {
-            VStack{
-                Text("image should be here")
-                //tar masukin gambar disini pake zstack
-                Spacer()
-                
-                VStack{
-                    if(!isLogged){
-                        SignInWithAppleButton(.signIn) { request in
-                            
-                            request.requestedScopes = [.email , .fullName]
-                            print("\(String(describing: request.user))")
-                        } onCompletion: { result in
-                            
-                            switch result{
-                            case .success(let auth):
+//            NavigationView {
+                ZStack{
+                    Image("credentialBackGround")
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea(.all)
+                    VStack{
+                    //tar masukin gambar disini pake zstack
+                        Spacer()
+                    
+                    VStack{
+                        if(!isLogged){
+                            SignInWithAppleButton(.signIn) { request in
                                 
-                                switch auth.credential {
-                                case let credentialData as ASAuthorizationAppleIDCredential:
-                                    
-                                    let userId = credentialData.user//user id
-                                    
-                                    let email = credentialData.email//user info
-                                    let firstName = credentialData.fullName?.givenName
-                                    let lastName = credentialData.fullName?.familyName
-                                    //                                print(firstName)
-                                    
-                                    self.email = email ?? ""
-                                    self.userId = userId
-                                    self.firstName = firstName ?? ""
-                                    self.lastName = lastName ?? ""
-                                    //save ke user default
-                                    isLogged = true
+                                request.requestedScopes = [.email , .fullName]
+                                print("\(String(describing: request.user))")
+                            } onCompletion: { result in
                                 
+                                switch result{
+                                case .success(let auth):
                                     
-                                default:
-                                    break
+                                    switch auth.credential {
+                                    case let credentialData as ASAuthorizationAppleIDCredential:
+                                        
+                                        let userId = credentialData.user//user id
+                                        
+                                        let email = credentialData.email//user info
+                                        let firstName = credentialData.fullName?.givenName
+                                        let lastName = credentialData.fullName?.familyName
+                                        //                                print(firstName)
+                                        
+                                        self.email = email ?? ""
+                                        self.userId = userId
+                                        self.firstName = firstName ?? ""
+                                        self.lastName = lastName ?? ""
+                                        //save ke user default
+                                        isLogged = true
+                                        
+                                        
+                                    default:
+                                        break
+                                    }
+                                    
+                                case .failure(let error):
+                                    print(error)
                                 }
                                 
-                            case .failure(let error):
-                                print(error)
                             }
                             
+                            .signInWithAppleButtonStyle(
+                                colorScheme == .dark ? .white : .black
+                            )
                         }
-                        
-                        .signInWithAppleButtonStyle(
-                            colorScheme == .dark ? .white : .black
-                        )
                     }
-                    }
-                .cornerRadius(10)
-                .frame(height: 50)
-                .padding(.bottom, 50)
-                
+                    .padding()
+                    .cornerRadius(30)
+                    .frame(height: 80)
+                    .padding(.bottom, 120)
+                    
                 }
             }
-        .padding()
         }
-        //else homepage
+        
         else{
             HomePage(firstName:firstName)
                 .environment(\.managedObjectContext,appData.container.viewContext)
