@@ -26,6 +26,7 @@ let DataJadwal: [Jadwal] = [
 
 struct DetailRoute: View {
     @State var count = 0
+//    var chosenTime: TemplateListofRoute
     
     var body: some View {
         NavigationStack{
@@ -67,29 +68,6 @@ struct DetailRoute: View {
                         }
                     }
                     .padding(.top, 30)
-    //                SwipeItem(content: {
-    //                            Text("Exhibit 1")
-    //                         },
-    //                         left: {
-    //                            ZStack {
-    //                                Rectangle()
-    //                                    .fill(Color.orange)
-    //
-    //                                Image(systemName: "pencil.circle")
-    //                                    .foregroundColor(.white)
-    //                                    .font(.largeTitle)
-    //                            }
-    //                         },
-    //                         right: {
-    //                            ZStack {
-    //                                Rectangle()
-    //                                    .fill(Color.red)
-    //
-    //                                Image(systemName: "trash.circle")
-    //                                    .foregroundColor(.white)
-    //                                    .font(.largeTitle)
-    //                            }
-    //                         }, itemHeight: 50)
                 }
             }
             .navigationBarTitle("Schedule Recommendations", displayMode: .inline)

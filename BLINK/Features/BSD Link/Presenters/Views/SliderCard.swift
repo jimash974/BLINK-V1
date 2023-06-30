@@ -11,7 +11,6 @@ struct SwipeItem<Content: View, Left: View,  Right: View>: View {
     var content: () -> Content
     var left: () -> Left
     var right: () -> Right
-    var itemHeight: CGFloat
     
     @State var hoffset: CGFloat = 0
     @State var anchor: CGFloat = 0
@@ -25,12 +24,11 @@ struct SwipeItem<Content: View, Left: View,  Right: View>: View {
     
     init(@ViewBuilder content: @escaping () -> Content,
          @ViewBuilder left: @escaping () -> Left,
-         @ViewBuilder right: @escaping () -> Right,
-         itemHeight: CGFloat) {
+         @ViewBuilder right: @escaping () -> Right
+    ) {
         self.content = content
         self.left = left
         self.right = right
-        self.itemHeight = itemHeight
     }
     
     var drag: some Gesture {
@@ -95,8 +93,8 @@ struct SwipeItem<Content: View, Left: View,  Right: View>: View {
             }
         }
         .offset(x: -anchorWidth + hoffset)
-        .frame(maxHeight: itemHeight)
-        .contentShape(Rectangle())
+        .frame(width: 350, height: 85)
+//        .contentShape(Rectangle())
         .gesture(drag)
         .clipped()
     }
