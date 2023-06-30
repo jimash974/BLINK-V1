@@ -103,6 +103,6 @@ struct RecommendationView: View {
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationView(startHalte: "wkkw", finishHalte: "wkkw", time:Binding.constant("10:00"), data: dummySched)
+        RecommendationView(time:Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw",  data: dummySched)
     }
 }
