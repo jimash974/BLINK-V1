@@ -10,7 +10,7 @@ import SwiftUI
 struct HomePage: View {
     @State var pickUp: String = "Set starting bus stop"
     @State var destination: String = "Set destination bus stop"
-    @State private var Time: String = "Set Departure Time"
+    @State private var time: String = "Set Departure Time"
     let pickUpBM = ["Eternity", "Edutown 1", "The Breeze", "Extreme Park", "The Breeze"]
     let destBM = ["Puspita Loka", "Greenwich Park Office", "Verdant View", "Casa de Parco", "Terminal Intermoda"]
     let timeBM = ["15:00", "08:00", "17:00", "19:00", "13:00"]
@@ -107,8 +107,8 @@ struct HomePage: View {
                                 }
                             } label: {
                                 HStack{
-                                    Text("\(Time)")
-                                        .foregroundColor(Time != "Set Departure Time" ? .black : .gray)
+                                    Text("\(time)")
+                                        .foregroundColor(time != "Set Departure Time" ? .black : .gray)
                                     Spacer()
                                 }
                                 .frame(width: 200)
@@ -121,9 +121,13 @@ struct HomePage: View {
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
-                        if pickUp != "" && pickUp != "Set starting bus stop" && destination != "" && destination != "Set destination bus stop" && Time != "Set Departure Time" && Time != ""{
+                        if pickUp != "" && pickUp != "Set starting bus stop" && destination != "" && destination != "Set destination bus stop" && time != "Set Departure Time" && time != ""{
                             NavigationLink{
+<<<<<<< HEAD
                                 RecommendationView(time: $Time)
+=======
+                                RecommendationView(startHalte: pickUp, finishHalte: destination, time: time, data: content)
+>>>>>>> 19a3095295f0d25b8088c67e0bd99ccf81ecbbe8
                             } label: {
                                 HStack{
                                 Image("search")
@@ -205,11 +209,18 @@ struct HomePage: View {
                         PopUpHalteComponent(selectedHalte: $destination)
                     }
                 }else if isPopUpTime{
-                    PopUpTimeComponent(time: $Time)
+                    PopUpTimeComponent(time: $time)
                 }
         }
         }
         
+    }
+    
+    var content: [Schedule] {
+        return schedule.filter {
+            $0.startHalte.contains(pickUp) &&
+            $0.finishHalte.contains(destination)
+        }
     }
 }
 

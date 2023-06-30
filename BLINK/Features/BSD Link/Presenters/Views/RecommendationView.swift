@@ -9,8 +9,15 @@ import SwiftUI
 
 struct RecommendationView: View {
     @State private var isOn = false
+<<<<<<< HEAD
     @StateObject var scheduleViewModel = ScheduleViewModel()
     @Binding var time:String
+=======
+    var startHalte: String
+    var finishHalte: String
+    var time: String
+    var data: [Schedule]
+>>>>>>> 19a3095295f0d25b8088c67e0bd99ccf81ecbbe8
     
     var body: some View {
         NavigationStack {
@@ -32,16 +39,16 @@ struct RecommendationView: View {
                             }
                             .padding(.trailing,5)
                             VStack(alignment: .leading){
-                                Text("The Breeze")
+                                Text("\(startHalte)")
                                 Divider()
                                     .frame(width: 270, height: 0)
                                     .overlay(Color(red: 0, green: 0, blue: 0).opacity(0.7))
-                                Text("Terminal Intermoda")
+                                Text("\(finishHalte)")
                                     .padding([.top,.bottom],10)
                                 Divider()
                                     .frame(width: 270, height: 0)
                                     .overlay(Color(red: 0, green: 0, blue: 0).opacity(0.7))
-                                Text("13:10")
+                                Text("\(time)")
                                     .padding(.top,10)
                             }
                             .foregroundColor(.black)
@@ -70,11 +77,11 @@ struct RecommendationView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     ScrollView {
                         VStack(spacing: 10) {
-                            ForEach(0..<10) {_ in
+                            ForEach(data) {each in
                                 NavigationLink{
                                     DetailRoute()
                                 } label: {
-                                    TemplateListofRoute(time: "13.10", routeName: "BSD Link Sektor 1.3", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
+                                    TemplateListofRoute(time: "13.00", routeName: each.alias, routeDetail: each.namaRute)
                                         .foregroundColor(.black)
                                 }
                                 
@@ -100,6 +107,10 @@ struct RecommendationView: View {
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
+<<<<<<< HEAD
         RecommendationView(time:Binding.constant("10:00"))
+=======
+        RecommendationView(startHalte: "wkkw", finishHalte: "wkkw", time: "wkwk", data: dummySched)
+>>>>>>> 19a3095295f0d25b8088c67e0bd99ccf81ecbbe8
     }
 }
