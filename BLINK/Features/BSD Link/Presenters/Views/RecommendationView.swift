@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RecommendationView: View {
     @State private var isOn = false
+    @StateObject var scheduleViewModel = ScheduleViewModel()
+    @Binding var time:String
     
     var body: some View {
         NavigationStack {
@@ -87,11 +89,17 @@ struct RecommendationView: View {
             .navigationBarItems(leading: backButtonComponent())
             
         }
+        .onAppear(){
+            print("!")
+            scheduleViewModel.dateString = time
+            scheduleViewModel.dateString2 = "15:00"
+            scheduleViewModel.calculateTimeDifference()
+        }
     }
 }
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationView()
+        RecommendationView(time:Binding.constant("10:00"))
     }
 }
