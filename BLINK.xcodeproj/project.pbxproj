@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4606687A2A42F0100058896F /* inputDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460668792A42F0100058896F /* inputDataView.swift */; };
+		46F9FFA22A4DD31100BB714D /* CredentialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F9FFA12A4DD31100BB714D /* CredentialLogin.swift */; };
 		4A3208872A4A96AD00246F3E /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208862A4A96AD00246F3E /* RecommendationView.swift */; };
 		4A3208892A4AAE5B00246F3E /* TemplateListofRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */; };
 		4A32088C2A4BE32300246F3E /* DetailRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A32088A2A4BE32300246F3E /* DetailRoute.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		460668792A42F0100058896F /* inputDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDataView.swift; sourceTree = "<group>"; };
+		46F9FFA12A4DD31100BB714D /* CredentialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialLogin.swift; sourceTree = "<group>"; };
 		4A3208862A4A96AD00246F3E /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListofRoute.swift; sourceTree = "<group>"; };
 		4A32088A2A4BE32300246F3E /* DetailRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRoute.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				4A3208882A4AAE5B00246F3E /* TemplateListofRoute.swift */,
 				5818FFCD2A4885A00017F676 /* HomePage.swift */,
 				4D9F802C2A4AC57200FAA9C8 /* CartList.swift */,
+				46F9FFA12A4DD31100BB714D /* CredentialLogin.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				585580022A42828F00991CA4 /* ContentView.swift in Sources */,
 				5818FFD22A488ED90017F676 /* BookmarkComponent.swift in Sources */,
 				5818FFD62A4A95710017F676 /* SheetManager.swift in Sources */,
+				46F9FFA22A4DD31100BB714D /* CredentialLogin.swift in Sources */,
 				5855803C2A4285A400991CA4 /* BusViewModel.swift in Sources */,
 				585580342A42850C00991CA4 /* EmptyState.swift in Sources */,
 				4D39DCD82A4C02DC007711F7 /* AppManager.swift in Sources */,
