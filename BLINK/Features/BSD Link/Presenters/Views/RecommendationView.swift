@@ -73,13 +73,14 @@ struct RecommendationView: View {
                     ScrollView {
                         VStack(spacing: 10) {
                             ForEach(data) {each in
-                                NavigationLink{
-                                    DetailRoute()
-                                } label: {
-                                    TemplateListofRoute(time: "13.00", routeName: each.alias, routeDetail: each.namaRute)
-                                        .foregroundColor(.black)
+                                ForEach(each.time, id:\.self) { waktu in
+                                    NavigationLink{
+                                        DetailRoute(routeName: each.alias, routeDetail: each.namaRute, time: waktu.first ?? "", data: each)
+                                    } label: {
+                                        TemplateListofRoute(time: waktu.first ?? "", routeName: each.alias, routeDetail: each.namaRute)
+                                            .foregroundColor(.black)
+                                    }
                                 }
-                                
                             }
                         }
                     }

@@ -27,7 +27,7 @@ struct TemplateListofRoute: View {
                             .padding([.top,.trailing],2)
                     }
                     Spacer()
-                    VStack(alignment: .leading){
+                    VStack(){
                         ZStack{
                             RoundedRectangle(cornerRadius: 200.0)
                                 .fill(Color(red: 1, green: 0.604, blue: 0.675))
@@ -55,7 +55,7 @@ struct TemplateListofRoute: View {
 
 struct TemplateListofRoute_Previews: PreviewProvider {
     static var previews: some View {
-        TemplateListofRoute(time: "13.10", routeName: "BSD Link Sektor 1.3", routeDetail: "Intermoda - Sektor 1.3 - Intermoda")
+        TemplateListofRoute(time: "13.10", routeName: "BSD Link Sektor 1.3", routeDetail: "Intermoda - De Park 2 - Intermoda")
             .previewLayout(.sizeThatFits)
 
     }
