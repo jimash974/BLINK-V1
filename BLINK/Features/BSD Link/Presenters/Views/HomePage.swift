@@ -14,7 +14,6 @@ struct HomePage: View {
     let pickUpBM = ["Eternity", "Edutown 1", "The Breeze", "Extreme Park", "The Breeze"]
     let destBM = ["Puspita Loka", "Greenwich Park Office", "Verdant View", "Casa de Parco", "Terminal Intermoda"]
     let timeBM = ["15:00", "08:00", "17:00", "19:00", "13:00"]
-
     
     @EnvironmentObject var sheetManager:SheetManager
     
@@ -124,7 +123,7 @@ struct HomePage: View {
                         .shadow(radius: 3)
                         if pickUp != "" && pickUp != "Set starting bus stop" && destination != "" && destination != "Set destination bus stop" && time != "Set Departure Time" && time != ""{
                             NavigationLink{
-                                RecommendationView(startHalte: pickUp, finishHalte: destination, time: time, data: content, chosenTime:"11:00")
+                                RecommendationView(startHalte: pickUp, finishHalte: destination, time: $time, data: content, chosenTime:"11:00")
                             } label: {
                                 HStack{
                                 Image("search")

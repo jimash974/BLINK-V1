@@ -9,9 +9,10 @@ import SwiftUI
 
 struct RecommendationView: View {
     @State private var isOn = false
+    @StateObject var scheduleViewModel = ScheduleViewModel()
+    @Binding var time:String
     var startHalte: String
     var finishHalte: String
-    var time: String
     var data: [Schedule]
     var chosenTime: String
     
@@ -127,11 +128,17 @@ struct RecommendationView: View {
             .navigationBarItems(leading: backButtonComponent())
             
         }
+        .onAppear(){
+            print("!")
+            scheduleViewModel.dateString = time
+            scheduleViewModel.dateString2 = "15:00"
+            scheduleViewModel.calculateTimeDifference()
+        }
     }
 }
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationView(startHalte: "wkkw", finishHalte: "wkkw", time: "wkwk", data: dummySched, chosenTime: "11:00")
+        RecommendationView(startHalte: "wkkw", finishHalte: "wkkw", time: Binding.constant("10:00"), data: dummySched, chosenTime: "11:00")
     }
 }
