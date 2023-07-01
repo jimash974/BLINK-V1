@@ -17,6 +17,7 @@ struct Schedule: Identifiable, Hashable {
     var time: [[String]]
 }
 
+
 let schedule = [
     Schedule(alias: "BSD Link The Breeze", namaRute: "The Breeze - AEON Mall - ICE - AEON Mall - The Breeze", startHalte: "The Breeze", finishHalte: "CBD Timur 1",
              rute: ["The Breeze", "CBD Timur 1"],

@@ -13,32 +13,29 @@ struct BookmarkComponent: View {
     var dest:String
     
     var body: some View {
-        Button (action: {
-            print("Clicke")
-        }, label: {
-            HStack(){
-                VStack{
-                    Image("bus")
-                    Text(time)
-                        .foregroundColor(.black)
-                        .font(.system(size: 17))
-                }
-                Image("line")
-                VStack(alignment: .leading, spacing: 10){
-                    Text(pickUp)
-                    Text("Puspita Lokal")
-                }
-                .foregroundColor(.black)
-                .font(.system(size: 17))
-                Spacer()
+        HStack(){
+            VStack{
+                Image("bus")
+                Text(time)
+                    .foregroundColor(.black)
+                    .font(.system(size: 17))
             }
-            .padding(10)
-            .frame(width: 264, height: 80)
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5, y: 5)
-        })
-
+            Image("line")
+            VStack(alignment: .leading, spacing: 10){
+                Text(pickUp)
+                Text("\(dest)")
+            }
+            .foregroundColor(.black)
+            .font(.system(size: 17))
+            Spacer()
+        }
+        .padding(10)
+        .frame(width: 264, height: 80)
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 5, y: 5)
+        
+        
     }
 }
 

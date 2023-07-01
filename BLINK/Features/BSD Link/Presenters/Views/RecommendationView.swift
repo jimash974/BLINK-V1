@@ -6,15 +6,100 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RecommendationView: View {
+    @Environment(\.managedObjectContext) var dbContext
+    @EnvironmentObject var appManager : AppManager
+    
     @State private var isOn = false
+    @State private var reminderOn = false
     @StateObject var scheduleViewModel = ScheduleViewModel()
     @Binding var time:String
     var startHalte: String
     var finishHalte: String
     var data: [Schedule]
-//    private var chosenTime: String
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults<Item>
+    
+    func checkBookmark (halteAwal : String, halteAkhir : String, jam : String) -> Bool {
+        
+        let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()
+        let predicate = NSPredicate(format: "halteAwal == %@ && halterAkhir == %@ && jam == %@", halteAwal,halteAkhir,jam)
+        
+        fetchRequest.predicate = predicate
+        
+        do{
+            
+            let result = try dbContext.fetch(fetchRequest)
+            
+            for predicate in result {
+                print("Ada")
+                return true
+                
+            }
+            print("tidak ada")
+            return false
+
+            
+        }catch{
+            print("error")
+            return false
+        }
+    }
+    
+    func addBookmark (halteAwal : String, halteAkhir : String, jam : String) {
+        
+        let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()
+        let predicate = NSPredicate(format: "halteAwal == %@ && halterAkhir == %@ && jam == %@", halteAwal,halteAkhir,jam)
+        
+        fetchRequest.predicate = predicate
+        
+        do{
+            let results = try dbContext.fetch(fetchRequest)
+            
+            if(results.count > 0){
+                
+                deleteSpecificData (halteAwal : halteAwal, halteAkhir : halteAkhir, jam : jam)
+                
+                return
+                
+            }else{
+                
+                let newBookmark = Item(context: dbContext)
+                
+                newBookmark.halteAwal = halteAwal
+                newBookmark.halterAkhir = halteAkhir
+                newBookmark.jam = jam
+                
+                try dbContext.save()
+            }
+        }catch{
+            print("error")
+        }
+    }
+    
+    
+    func deleteSpecificData (halteAwal : String, halteAkhir : String, jam : String) {
+        
+        let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()
+        let predicate = NSPredicate(format: "halteAwal == %@ && halterAkhir == %@ && jam == %@", halteAwal,halteAkhir,jam)
+        
+        fetchRequest.predicate = predicate
+        
+        do{
+            
+            let result = try dbContext.fetch(fetchRequest)
+            
+            for predicate in result {
+                dbContext.delete(predicate)
+            }
+            
+            try dbContext.save()
+            
+        }catch{
+            print("error")
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -53,7 +138,9 @@ struct RecommendationView: View {
                         }
                     }
                     Button  {
+                        print(isOn)
                         isOn.toggle()
+                        addBookmark(halteAwal: startHalte, halteAkhir: finishHalte, jam: time)
                     } label: {
                         HStack{
                             Image("bookmark")
@@ -96,23 +183,30 @@ struct RecommendationView: View {
                                                   right: {
                                             ZStack {
                                                 Rectangle()
-                                                    .fill(Color.orange)
+                                                    .fill(reminderOn ? AppColor.orange : AppColor.PUGrey)
                                                 
                                                 Button(action: {
-                                                    let notification = Reminder()
-                                                    notification.askPermission() // Request permission to display notifications
-                                                    notification.scheduleRecurringNotification(time: jam[0]) // Schedule notification with the chosen time
-                                                }){
+                                                    if reminderOn {
+                                                        let notification = Reminder()
+                                                        notification.cancelNotification() // Cancel the scheduled notification
+                                                    } else {
+                                                        let notification = Reminder()
+                                                        notification.askPermission() // Request permission to display notifications
+                                                        notification.scheduleRecurringNotification(time: jam[0], routeName: each.alias) // Schedule notification with the chosen time
+                                                    }
+                                                    reminderOn.toggle() // Toggle the reminderOn state
+                                                }) {
                                                     Image("Bell")
                                                         .foregroundColor(.white)
                                                         .font(.largeTitle)
-                                                        .padding(.leading,10)
+                                                        .padding(.leading, 10)
                                                     Text("Reminder")
                                                         .fontWeight(.semibold)
                                                         .font(.body)
                                                         .padding(.leading, -5)
                                                         .foregroundColor(.black)
                                                 }
+                                                .disabled(false) // Enable the button, regardless of the reminderOn state
                                             }
                                         })
                                     }
@@ -125,16 +219,23 @@ struct RecommendationView: View {
                     }
                 }
             }
-    //            .font(.system(size: 20))
+            //            .font(.system(size: 20))
             .navigationBarTitle("Schedule Recommendations", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: backButtonComponent())
         }
+        .onAppear(){
+            isOn = checkBookmark(halteAwal: startHalte, halteAkhir: finishHalte, jam: time)
+//            print("!")
+//            scheduleViewModel.dateString = time
+//            scheduleViewModel.dateString2 = "15:00"
+//            scheduleViewModel.calculateTimeDifference()
+        }
     }
 }
 
-struct RecommendationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendationView(time: Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw", data: dummySched)
-    }
-}
+//struct RecommendationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecommendationView(time: Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw", data: dummySched)
+//    }
+//}

@@ -26,8 +26,12 @@ class Reminder {
             }
         }
     }
+    
+    func cancelNotification() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
 
-    func scheduleRecurringNotification(time: String) {
+    func scheduleRecurringNotification(time: String, routeName: String) {
         let content = UNMutableNotificationContent()
         content.title = "Blink"
         
@@ -47,7 +51,8 @@ class Reminder {
         notificationTimeFormatter.dateFormat = "HH:mm"
         let notificationTimeString = notificationTimeFormatter.string(from: notificationTime)
         
-        content.body = "The (route) bus will arrive at \(notificationTimeString)" //change the (route) with route name
+        let routeString = "The \(routeName) bus will arrive at \(notificationTimeString)"
+        content.body = routeString
         
         let triggerDateComponents = Calendar.current.dateComponents([.hour, .minute], from: notificationTime)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: true)
@@ -63,11 +68,4 @@ class Reminder {
             }
         }
     }
-}
-
-// Assuming you have a button or action that triggers the notification scheduling
-func handleNotificationScheduling() {
-    let notification = Reminder()
-    notification.askPermission() // Request permission to display notifications
-//    notification.scheduleRecurringNotification(time: "11:39") ( Replace "10:00" with the card chosen time)
 }

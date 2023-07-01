@@ -12,16 +12,16 @@ class ScheduleViewModel:ObservableObject{
     
     let arrSchedule = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"]
     let choosenTime = "12:30"
-    var listTime = [""]
+    var listTime = [String]()
     
-    func listEstimatedTime() {
-        for schedule in arrSchedule {
-            if let difference = calculateTimeDifference(dateString: choosenTime, dateString2: schedule) {
+    func listEstimatedTime(choosenTime: String, time: Schedule) {
+        for aTime in time.time {
+            if let difference = calculateTimeDifference(dateString: choosenTime, dateString2: aTime[0]) {
 //                print(difference)
                 
                 // Perform further actions based on the unwrapped difference value
                 if difference >= -30 && difference < 60 {
-                    listTime.append(schedule)
+                    listTime.append(aTime[0])
                 }else{
                     print("Exclude")
                 }

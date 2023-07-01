@@ -15,6 +15,9 @@ struct HomePage: View {
     let destBM = ["Puspita Loka", "Greenwich Park Office", "Verdant View", "Casa de Parco", "Terminal Intermoda"]
     let timeBM = ["15:00", "08:00", "17:00", "19:00", "13:00"]
     
+    var firstName : String = ""
+
+    @Environment(\.managedObjectContext) var dbContext
     @EnvironmentObject var sheetManager:SheetManager
     
     @State var isPopUp = false
@@ -23,6 +26,7 @@ struct HomePage: View {
     @State var flag = 0
     
     @StateObject var scheduleVM = ScheduleViewModel()
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults <Item>
     
     var body: some View {
         NavigationStack {
@@ -33,7 +37,7 @@ struct HomePage: View {
                 VStack(spacing: 0){
                     HStack(alignment: .center){
                         VStack(alignment: .leading, spacing: 20){
-                            Text(prompt.homepage.title)
+                            Text("Hi, \(firstName)")
                                 .font(.system(size: 34, weight: .bold))
                             Text(prompt.homepage.description)
                                 .font(.system(size: 14))
@@ -95,7 +99,6 @@ struct HomePage: View {
                         }
                         .frame(width: 307, height: 111)
                         .padding([.leading,.trailing],10)
-//                        .padding([.top, .bottom], 15)
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
@@ -118,8 +121,6 @@ struct HomePage: View {
                             Spacer()
                         }
                         .frame(width: 327, height: 50)
-//                        .padding(.leading, 25)
-//                        .padding([.top, .bottom], 15)
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
@@ -159,10 +160,13 @@ struct HomePage: View {
                     
                     ScrollView(.horizontal, showsIndicators: true) {
                         HStack(spacing: 20) {
-                            ForEach(Array(pickUpBM.indices), id: \.self) { index in
-                                BookmarkComponent(time: timeBM[index], pickUp: pickUpBM[index], dest: destBM[index])
+                            ForEach(listofBookmark) { bk in
+                                NavigationLink{
+                                    RecommendationView(time: .constant(bk.jam ?? ""), startHalte: bk.halteAwal ?? "", finishHalte: bk.halterAkhir ?? "", data: bookmarkedContent(awal: bk.halteAwal ?? "", akhir: bk.halterAkhir ?? ""))
+                                } label: {
+                                    BookmarkComponent(time: bk.jam ?? "", pickUp: bk.halteAwal ?? "", dest: bk.halterAkhir ?? "")
+                                }
                             }
-
                         }
                         .padding()
                     }
@@ -177,12 +181,6 @@ struct HomePage: View {
                            .onTapGesture {
                                withAnimation {
                                    isPopUp.toggle()
-    //                               print(selectedHalte)
-    //                               if flag == 0{
-    //                                   pickUp = selectedHalte
-    //                               }else if flag == 1{
-    //                                   destination = selectedHalte
-    //                               }
                                }
                            }
                    }
@@ -212,8 +210,9 @@ struct HomePage: View {
         }
         }
         .onAppear(){
-            scheduleVM.listEstimatedTime()
-            print(scheduleVM.listTime)
+            
+//            scheduleVM.listEstimatedTime()
+//            print(scheduleVM.listTime)
         }
         
     }
@@ -222,6 +221,16 @@ struct HomePage: View {
         return schedule.filter {
             $0.startHalte.contains(pickUp) &&
             $0.finishHalte.contains(destination)
+//            && for aTime in $0.time {
+//                aTime[0].contains(listEstimatedTime(choosenTime: time, time: $0))
+//            }
+        }
+    }
+    
+    func bookmarkedContent (awal: String, akhir: String) -> [Schedule] {
+        return schedule.filter {
+            $0.startHalte.contains(awal) &&
+            $0.finishHalte.contains(akhir)
         }
     }
 }
