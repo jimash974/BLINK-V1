@@ -20,6 +20,8 @@ struct RecommendationView: View {
     var data: [Schedule]
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults<Item>
     
+//    func checkBookmark(
+    
     func addBookmark (halteAwal : String, halteAkhir : String, jam : String) {
         
         let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()

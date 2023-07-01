@@ -27,7 +27,7 @@ struct BookmarkComponent: View {
                 Image("line")
                 VStack(alignment: .leading, spacing: 10){
                     Text(pickUp)
-                    Text("Puspita Lokal")
+                    Text("\(dest)")
                 }
                 .foregroundColor(.black)
                 .font(.system(size: 17))
