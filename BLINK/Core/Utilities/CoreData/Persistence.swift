@@ -8,7 +8,7 @@
 import CoreData
 import SwiftUI
 
-class ApplicationData : ObservableObject{
+class ApplicationData : ObservableObject {
     let container : NSPersistentContainer
     
     init(){
