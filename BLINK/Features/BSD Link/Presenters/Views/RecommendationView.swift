@@ -14,7 +14,7 @@ struct RecommendationView: View {
     var startHalte: String
     var finishHalte: String
     var data: [Schedule]
-    var chosenTime: String
+//    private var chosenTime: String
     
     var body: some View {
         NavigationStack {
@@ -75,45 +75,47 @@ struct RecommendationView: View {
                     ScrollView {
                         VStack(spacing: 10) {
                             ForEach(data) {each in
-                                NavigationLink{
-                                    DetailRoute(routeName: each.alias, routeDetail: each.namaRute, time: "13.00", data: each)
-                                } label: {
-                                    SwipeItem(content: {
-                                        TemplateListofRoute(time: "13.00", routeName: each.alias, routeDetail: each.namaRute)
-                                            .foregroundColor(.black)
-                                             },
-                                             left: {
-                                                ZStack {
-                                                    Rectangle()
-                                                        .fill(Color.orange)
-                    
-                                                    Image(systemName: "pencil.circle")
+                                ForEach(each.time, id: \.self) {jam in
+                                    NavigationLink{
+                                        DetailRoute(routeName: each.alias, routeDetail: each.namaRute, time: jam[0], listOfTime: jam, rute: each.rute)
+                                    } label: {
+                                        SwipeItem(content: {
+                                            TemplateListofRoute(time: jam[0], routeName: each.alias, routeDetail: each.namaRute)
+                                                .foregroundColor(.black)
+                                        },
+                                                  left: {
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(Color.orange)
+                                                
+                                                Image(systemName: "pencil.circle")
+                                                    .foregroundColor(.white)
+                                                    .font(.largeTitle)
+                                            }
+                                        },
+                                                  right: {
+                                            ZStack {
+                                                Rectangle()
+                                                    .fill(Color.orange)
+                                                
+                                                Button(action: {
+                                                    let notification = Reminder()
+                                                    notification.askPermission() // Request permission to display notifications
+                                                    notification.scheduleRecurringNotification(time: jam[0]) // Schedule notification with the chosen time
+                                                }){
+                                                    Image("Bell")
                                                         .foregroundColor(.white)
                                                         .font(.largeTitle)
+                                                        .padding(.leading,10)
+                                                    Text("Reminder")
+                                                        .fontWeight(.semibold)
+                                                        .font(.body)
+                                                        .padding(.leading, -5)
+                                                        .foregroundColor(.black)
                                                 }
-                                             },
-                                             right: {
-                                                ZStack {
-                                                    Rectangle()
-                                                        .fill(Color.orange)
-                    
-                                                    Button(action: {
-                                                        let notification = Reminder()
-                                                        notification.askPermission() // Request permission to display notifications
-                                                        notification.scheduleRecurringNotification(time: chosenTime) // Schedule notification with the chosen time
-                                                    }){
-                                                        Image("Bell")
-                                                            .foregroundColor(.white)
-                                                            .font(.largeTitle)
-                                                            .padding(.leading,10)
-                                                        Text("Reminder")
-                                                            .fontWeight(.semibold)
-                                                            .font(.body)
-                                                            .padding(.leading, -5)
-                                                            .foregroundColor(.black)
-                                                    }
-                                                }
-                                             })
+                                            }
+                                        })
+                                    }
                                 }
                             }
                         }
@@ -131,6 +133,6 @@ struct RecommendationView: View {
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationView(time: Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw", data: dummySched, chosenTime: "11:00")
+        RecommendationView(time: Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw", data: dummySched)
     }
 }

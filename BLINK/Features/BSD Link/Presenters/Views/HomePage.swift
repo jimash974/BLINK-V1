@@ -125,7 +125,7 @@ struct HomePage: View {
                         .shadow(radius: 3)
                         if pickUp != "" && pickUp != "Set starting bus stop" && destination != "" && destination != "Set destination bus stop" && time != "Set Departure Time" && time != ""{
                             NavigationLink{
-                                RecommendationView(time: $time, startHalte: pickUp, finishHalte: destination, data: content, chosenTime:"11:00")
+                                RecommendationView(time: $time, startHalte: pickUp, finishHalte: destination, data: content)
                             } label: {
                                 HStack{
                                 Image("search")
