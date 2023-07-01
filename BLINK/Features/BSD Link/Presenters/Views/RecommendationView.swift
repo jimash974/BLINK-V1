@@ -6,15 +6,73 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RecommendationView: View {
+    @Environment(\.managedObjectContext) var dbContext
+    @EnvironmentObject var appManager : AppManager
+
     @State private var isOn = false
     @StateObject var scheduleViewModel = ScheduleViewModel()
     @Binding var time:String
     var startHalte: String
     var finishHalte: String
     var data: [Schedule]
-//    private var chosenTime: String
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults<Item>
+    
+    func addBookmark (halteAwal : String, halteAkhir : String, jam : String) {
+        
+        let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()
+        let predicate = NSPredicate(format: "halteAwal == %@ && halterAkhir == %@ && jam == %@", halteAwal,halteAkhir,jam)
+        
+        fetchRequest.predicate = predicate
+        
+        do{
+            let results = try dbContext.fetch(fetchRequest)
+            
+            if(results.count > 0){
+                
+                deleteSpecificData (halteAwal : halteAwal, halteAkhir : halteAkhir, jam : jam)
+                
+                return
+                
+            }else{
+                
+                let newBookmark = Item(context: dbContext)
+                
+                newBookmark.halteAwal = halteAwal
+                newBookmark.halterAkhir = halteAkhir
+                newBookmark.jam = jam
+                
+                try dbContext.save()
+            }
+        }catch{
+            print("error")
+        }
+    }
+    
+    
+    func deleteSpecificData (halteAwal : String, halteAkhir : String, jam : String) {
+            
+            let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()
+            let predicate = NSPredicate(format: "halteAwal == %@ && halterAkhir == %@ && jam == %@", halteAwal,halteAkhir,jam)
+            
+            fetchRequest.predicate = predicate
+        
+            do{
+                
+                let result = try dbContext.fetch(fetchRequest)
+                
+                for predicate in result {
+                    dbContext.delete(predicate)
+                }
+                
+                try dbContext.save()
+                
+            }catch{
+                print("error")
+            }
+        }
     
     var body: some View {
         NavigationStack {
@@ -54,6 +112,7 @@ struct RecommendationView: View {
                     }
                     Button  {
                         isOn.toggle()
+                        addBookmark(halteAwal: startHalte, halteAkhir: finishHalte, jam: time)
                     } label: {
                         HStack{
                             Image("bookmark")

@@ -14,7 +14,8 @@ struct BookmarkComponent: View {
     
     var body: some View {
         Button (action: {
-            print("Clicke")
+            print("test2")
+//            RecommendationView()
         }, label: {
             HStack(){
                 VStack{

@@ -15,12 +15,17 @@ struct HomePage: View {
     let destBM = ["Puspita Loka", "Greenwich Park Office", "Verdant View", "Casa de Parco", "Terminal Intermoda"]
     let timeBM = ["15:00", "08:00", "17:00", "19:00", "13:00"]
     
+    var firstName : String = ""
+
+    @Environment(\.managedObjectContext) var dbContext
     @EnvironmentObject var sheetManager:SheetManager
     
     @State var isPopUp = false
     @State var isPopUpTime = false
     @State var selectedHalte = ""
     @State var flag = 0
+    
+    @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults <Item>
     
     var body: some View {
         NavigationStack {
@@ -31,7 +36,7 @@ struct HomePage: View {
                 VStack(spacing: 0){
                     HStack(alignment: .center){
                         VStack(alignment: .leading, spacing: 20){
-                            Text(prompt.homepage.title)
+                            Text("Hi, \(firstName)")
                                 .font(.system(size: 34, weight: .bold))
                             Text(prompt.homepage.description)
                                 .font(.system(size: 14))
@@ -157,8 +162,8 @@ struct HomePage: View {
                     
                     ScrollView(.horizontal, showsIndicators: true) {
                         HStack(spacing: 20) {
-                            ForEach(Array(pickUpBM.indices), id: \.self) { index in
-                                BookmarkComponent(time: timeBM[index], pickUp: pickUpBM[index], dest: destBM[index])
+                            ForEach(listofBookmark) { bk in
+                                BookmarkComponent(time: bk.jam ?? "", pickUp: bk.halteAwal ?? "", dest: bk.halterAkhir ?? "")
                             }
 
                         }
