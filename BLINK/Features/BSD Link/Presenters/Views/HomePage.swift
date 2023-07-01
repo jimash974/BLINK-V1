@@ -163,9 +163,12 @@ struct HomePage: View {
                     ScrollView(.horizontal, showsIndicators: true) {
                         HStack(spacing: 20) {
                             ForEach(listofBookmark) { bk in
-                                BookmarkComponent(time: bk.jam ?? "", pickUp: bk.halteAwal ?? "", dest: bk.halterAkhir ?? "")
+                                NavigationLink{
+                                    RecommendationView(time: .constant(bk.jam ?? ""), startHalte: bk.halteAwal ?? "", finishHalte: bk.halterAkhir ?? "", data: bookmarkedContent(awal: bk.halteAwal ?? "", akhir: bk.halterAkhir ?? ""))
+                                } label: {
+                                    BookmarkComponent(time: bk.jam ?? "", pickUp: bk.halteAwal ?? "", dest: bk.halterAkhir ?? "")
+                                }
                             }
-
                         }
                         .padding()
                     }
@@ -221,6 +224,13 @@ struct HomePage: View {
         return schedule.filter {
             $0.startHalte.contains(pickUp) &&
             $0.finishHalte.contains(destination)
+        }
+    }
+    
+    func bookmarkedContent (awal: String, akhir: String) -> [Schedule] {
+        return schedule.filter {
+            $0.startHalte.contains(awal) &&
+            $0.finishHalte.contains(akhir)
         }
     }
 }
