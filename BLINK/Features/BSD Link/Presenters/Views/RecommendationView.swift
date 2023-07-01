@@ -116,6 +116,9 @@ struct RecommendationView: View {
                                             }
                                         })
                                     }
+                                    .onAppear {
+                                        print("\(jam) \n")
+                                    }
                                 }
                             }
                         }
@@ -126,7 +129,6 @@ struct RecommendationView: View {
             .navigationBarTitle("Schedule Recommendations", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: backButtonComponent())
-            
         }
     }
 }
