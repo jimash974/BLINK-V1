@@ -22,6 +22,8 @@ struct HomePage: View {
     @State var selectedHalte = ""
     @State var flag = 0
     
+    @StateObject var scheduleVM = ScheduleViewModel()
+    
     var body: some View {
         NavigationStack {
             ZStack{
@@ -123,7 +125,7 @@ struct HomePage: View {
                         .shadow(radius: 3)
                         if pickUp != "" && pickUp != "Set starting bus stop" && destination != "" && destination != "Set destination bus stop" && time != "Set Departure Time" && time != ""{
                             NavigationLink{
-                                RecommendationView(time: $time, startHalte: pickUp, finishHalte: destination, data: content)
+                                RecommendationView(time: $time, startHalte: pickUp, finishHalte: destination, data: content, chosenTime:"11:00")
                             } label: {
                                 HStack{
                                 Image("search")
@@ -208,6 +210,10 @@ struct HomePage: View {
                     PopUpTimeComponent(time: $time)
                 }
         }
+        }
+        .onAppear(){
+            scheduleVM.listEstimatedTime()
+            print(scheduleVM.listTime)
         }
         
     }
