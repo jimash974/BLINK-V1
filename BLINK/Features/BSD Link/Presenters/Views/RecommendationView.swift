@@ -14,7 +14,7 @@ struct RecommendationView: View {
     var startHalte: String
     var finishHalte: String
     var data: [Schedule]
-    var chosenTime: String
+//    private var chosenTime: String
     
     var body: some View {
         NavigationStack {
@@ -77,7 +77,7 @@ struct RecommendationView: View {
                             ForEach(data) {each in
                                 ForEach(each.time, id: \.self) {jam in
                                     NavigationLink{
-                                        DetailRoute(routeName: each.alias, routeDetail: each.namaRute, time: jam[0], data: each)
+                                        DetailRoute(routeName: each.alias, routeDetail: each.namaRute, time: jam[0], listOfTime: jam, rute: each.rute)
                                     } label: {
                                         SwipeItem(content: {
                                             TemplateListofRoute(time: jam[0], routeName: each.alias, routeDetail: each.namaRute)
@@ -101,7 +101,7 @@ struct RecommendationView: View {
                                                 Button(action: {
                                                     let notification = Reminder()
                                                     notification.askPermission() // Request permission to display notifications
-                                                    notification.scheduleRecurringNotification(time: chosenTime) // Schedule notification with the chosen time
+                                                    notification.scheduleRecurringNotification(time: jam[0]) // Schedule notification with the chosen time
                                                 }){
                                                     Image("Bell")
                                                         .foregroundColor(.white)
@@ -139,6 +139,6 @@ struct RecommendationView: View {
 
 struct RecommendationView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationView(time: Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw", data: dummySched, chosenTime: "11:00")
+        RecommendationView(time: Binding.constant("10:00"), startHalte: "wkkw", finishHalte: "wkkw", data: dummySched)
     }
 }
