@@ -35,6 +35,7 @@
 		585580412A42860B00991CA4 /* BookMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580402A42860B00991CA4 /* BookMark.swift */; };
 		585580432A42861800991CA4 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580422A42861800991CA4 /* Reminder.swift */; };
 		585580452A42868500991CA4 /* ListBusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585580442A42868500991CA4 /* ListBusComponent.swift */; };
+		D02250892A50096F00049E31 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02250882A50096F00049E31 /* RecommendationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		585580402A42860B00991CA4 /* BookMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMark.swift; sourceTree = "<group>"; };
 		585580422A42861800991CA4 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		585580442A42868500991CA4 /* ListBusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBusComponent.swift; sourceTree = "<group>"; };
+		D02250882A50096F00049E31 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 				585580012A42828F00991CA4 /* ContentView.swift */,
 				460668792A42F0100058896F /* inputDataView.swift */,
 				5818FFCD2A4885A00017F676 /* HomePage.swift */,
+				D02250882A50096F00049E31 /* RecommendationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				5855801C2A42837000991CA4 /* ErrorMessage.swift in Sources */,
 				4606687A2A42F0100058896F /* inputDataView.swift in Sources */,
 				585580222A4283B800991CA4 /* CoreDataManager.swift in Sources */,
+				D02250892A50096F00049E31 /* RecommendationView.swift in Sources */,
 				585580362A42853000991CA4 /* ListComponent.swift in Sources */,
 				585580412A42860B00991CA4 /* BookMark.swift in Sources */,
 				5855801A2A42836900991CA4 /* Prompt.swift in Sources */,
