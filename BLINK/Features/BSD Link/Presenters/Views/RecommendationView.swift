@@ -21,7 +21,31 @@ struct RecommendationView: View {
     var data: [Schedule]
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults<Item>
     
-    //    func checkBookmark(
+    func checkBookmark (halteAwal : String, halteAkhir : String, jam : String) -> Bool {
+        
+        let fetchRequest : NSFetchRequest<Item> = Item.fetchRequest()
+        let predicate = NSPredicate(format: "halteAwal == %@ && halterAkhir == %@ && jam == %@", halteAwal,halteAkhir,jam)
+        
+        fetchRequest.predicate = predicate
+        
+        do{
+            
+            let result = try dbContext.fetch(fetchRequest)
+            
+            for predicate in result {
+                print("Ada")
+                return true
+                
+            }
+            print("tidak ada")
+            return false
+
+            
+        }catch{
+            print("error")
+        }
+        return false
+    }
     
     func addBookmark (halteAwal : String, halteAkhir : String, jam : String) {
         
@@ -114,6 +138,7 @@ struct RecommendationView: View {
                         }
                     }
                     Button  {
+                        print(isOn)
                         isOn.toggle()
                         addBookmark(halteAwal: startHalte, halteAkhir: finishHalte, jam: time)
                     } label: {
@@ -198,6 +223,7 @@ struct RecommendationView: View {
             
         }
         .onAppear(){
+            isOn = checkBookmark(halteAwal: startHalte, halteAkhir: finishHalte, jam: time)
             print("!")
             scheduleViewModel.dateString = time
             scheduleViewModel.dateString2 = "15:00"
