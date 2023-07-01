@@ -33,11 +33,9 @@ struct RecommendationView: View {
             let result = try dbContext.fetch(fetchRequest)
             
             for predicate in result {
-                print("Ada")
                 return true
                 
             }
-            print("tidak ada")
             return false
 
             
