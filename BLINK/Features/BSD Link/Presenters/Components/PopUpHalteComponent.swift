@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopUpHalteComponent: View {
-    var halte:[String] = ["","AEON Mall 2", "Albera", "Allevare", "Ammarila Lavanya", "Astra", "Auto Part", "BCA", "Bursa Mobil", "Casa de Parco", "CBD Timur 1","CBD Utara 3", "Chadnya", "Club House Avani", "Collinare", "Cosmo", "De Brassia", "De Frangipani", "De Heliconia 1", "De Heliconia 2", "De Maja", "De Nara", "Devina and Desnha", "East Business District", "Edutown", "Eka Hospital 1", "Eka Hospital 2", "Eternity", "Extreme Park", "FBL 1", "FBL 2", "FBL 5", "Fiore", "Foglio", "Foresta 1", "Foresta 2", "Fresco", "Giant", "Giardina", "Intermoda", "ICE","Lobby AEON Mall", "The Breeze" ]
+    var halte:[String] = ["","AEON Mall 1", "AEON Mall 2", "Albera", "Allevare", "Ammarila Lavanya", "Astra", "Auto Part", "BCA", "Bursa Mobil", "Casa de Parco", "CBD Timur 1","CBD Utara 3", "Chadnya", "Club House Avani", "Collinare", "Cosmo", "De Brassia", "De Frangipani", "De Heliconia 1", "De Heliconia 2", "De Maja", "De Nara", "Devina and Desnha", "East Business District", "Edutown", "Eka Hospital 1", "Eka Hospital 2", "Eternity", "Extreme Park", "FBL 1", "FBL 2", "FBL 5", "Fiore", "Foglio", "Foresta 1", "Foresta 2", "Fresco", "Giant", "Giardina", "Intermoda", "ICE","Lobby AEON Mall","Lobby AEON Mall (2)", "The Breeze" ]
     
     @Binding var selectedHalte:String
     
