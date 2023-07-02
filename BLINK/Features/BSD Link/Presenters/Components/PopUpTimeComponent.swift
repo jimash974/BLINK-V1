@@ -25,7 +25,7 @@ struct PopUpTimeComponent: View {
                 Text("Starting Bus Stop")
                     .font(.system(size: 17, weight: .semibold))
                     .frame(maxWidth: .infinity)
-                    .padding([.top,. bottom], 35)
+                    .padding([.top,. bottom], 25)
                     .background(.white)
             }
         }
