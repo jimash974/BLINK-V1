@@ -50,6 +50,7 @@ struct DetailRoute: View {
                                         FirstRoute(halte: item, jam: listOfTime[index], isFirst: false, isEnd: false)
                                     }
                                     else {
+//                                        print("terakhir")
                                         FirstRoute(halte: item, jam: listOfTime[index], isFirst: false, isEnd: true)
                                     }
                                 }
