@@ -42,7 +42,7 @@ struct TemplateListofRoute: View {
                     .foregroundColor(.black)
                     .font(.system(size: 17))
                 }
-                .padding([.leading, .trailing], 10)
+                .padding(10)
                 .frame(width: 350, height: 85)
                 .background(Color.white)
                 .cornerRadius(10)

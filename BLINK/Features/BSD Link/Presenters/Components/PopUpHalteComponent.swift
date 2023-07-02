@@ -36,7 +36,7 @@ struct PopUpHalteComponent: View {
                     .font(.system(size: 17, weight: .semibold))
     //                .position(y:100)
                     .frame(maxWidth: .infinity)
-                    .padding([.top,. bottom], 35)
+                    .padding([.top,. bottom], 25)
                     .background(.white)
             }
         }
