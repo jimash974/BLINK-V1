@@ -25,6 +25,7 @@ struct HomePage: View {
     @State var selectedHalte = ""
     @State var flag = 0
     
+    @StateObject var scheduleVM = ScheduleViewModel()
     @FetchRequest(sortDescriptors: [], predicate: nil, animation: .default) private var listofBookmark: FetchedResults <Item>
     
     var body: some View {
@@ -98,7 +99,6 @@ struct HomePage: View {
                         }
                         .frame(width: 307, height: 111)
                         .padding([.leading,.trailing],10)
-//                        .padding([.top, .bottom], 15)
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
@@ -121,8 +121,6 @@ struct HomePage: View {
                             Spacer()
                         }
                         .frame(width: 327, height: 50)
-//                        .padding(.leading, 25)
-//                        .padding([.top, .bottom], 15)
                         .background(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
@@ -183,12 +181,6 @@ struct HomePage: View {
                            .onTapGesture {
                                withAnimation {
                                    isPopUp.toggle()
-    //                               print(selectedHalte)
-    //                               if flag == 0{
-    //                                   pickUp = selectedHalte
-    //                               }else if flag == 1{
-    //                                   destination = selectedHalte
-    //                               }
                                }
                            }
                    }
@@ -217,6 +209,11 @@ struct HomePage: View {
                 }
         }
         }
+        .onAppear(){
+            
+//            scheduleVM.listEstimatedTime()
+//            print(scheduleVM.listTime)
+        }
         
     }
     
@@ -224,6 +221,9 @@ struct HomePage: View {
         return schedule.filter {
             $0.startHalte.contains(pickUp) &&
             $0.finishHalte.contains(destination)
+//            && for aTime in $0.time {
+//                aTime[0].contains(listEstimatedTime(choosenTime: time, time: $0))
+//            }
         }
     }
     
